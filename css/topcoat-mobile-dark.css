@@ -16,6 +16,8 @@
 *
 */
 
+@import url("font_awesome/css/font-awesome.min.css");
+
 .button-bar {
   display: table;
   table-layout: fixed;
@@ -4546,7 +4548,6 @@ limitations under the License.
 
 */
 
-@import url("font_awesome/css/font-awesome.min.css");
 
 html {
     width: 100%;
