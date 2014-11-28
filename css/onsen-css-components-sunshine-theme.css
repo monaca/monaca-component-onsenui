@@ -57,7 +57,7 @@ h6 {
   bottom: 0px;
   overflow: visible;
   font-size: 17px;
-  color: #1f1f21;
+  color: #333;
 }
 .page::-webkit-scrollbar {
   display: none;
@@ -207,7 +207,7 @@ h6 {
   transition-timing-function: cubic-bezier(0.5, 1.6, 0.5, 1);
 }
 .switch__input:checked + .switch__toggle {
-  background-color: #5198db;
+  background-color: #e69e33;
 }
 .switch__input:checked + .switch__toggle:before {
   -webkit-transform: translateX(18px);
@@ -344,7 +344,7 @@ h6 {
   left: -1024px;
   width: 1024px;
   height: 2px;
-  background-color: rgba(24,103,194,0.81);
+  background-color: #eb482f;
   content: '';
   margin: 0;
   padding: 0;
@@ -394,7 +394,7 @@ h6 {
   padding-left: 0;
   padding-right: 0;
   background: #fff;
-  color: #1f1f21;
+  color: #333;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-bottom: 1px solid #ddd;
@@ -463,13 +463,13 @@ h6 {
   line-height: 44px;
   font-size: 17px;
   font-weight: 500;
-  color: #1f1f21;
+  color: #333;
 }
 .navigation-bar__title {
   line-height: 44px;
   font-size: 17px;
   font-weight: 500;
-  color: #1f1f21;
+  color: #333;
   margin: 0;
   padding: 0;
   overflow: visible;
@@ -650,7 +650,7 @@ h6 {
   padding-left: 0;
   padding-right: 0;
   background: #fff;
-  color: #1f1f21;
+  color: #333;
   -webkit-box-shadow: none;
   box-shadow: none;
   font-weight: 400;
@@ -754,7 +754,7 @@ h6 {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: rgba(24,103,194,0.81);
+  background-color: #eb482f;
   border: 0px solid currentColor;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -770,7 +770,7 @@ h6 {
   transition: none;
 }
 .button:active {
-  background-color: rgba(24,103,194,0.81);
+  background-color: #eb482f;
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
@@ -796,17 +796,17 @@ h6 {
 */
 .button--outline {
   background-color: transparent;
-  border: 1px solid rgba(24,103,194,0.81);
-  color: rgba(24,103,194,0.81);
+  border: 1px solid #eb482f;
+  color: #eb482f;
 }
 .button--outline:active {
-  background-color: rgba(24,103,194,0.2);
-  border: 1px solid rgba(24,103,194,0.81);
-  color: rgba(24,103,194,0.81);
+  background-color: rgba(235,72,47,0.2);
+  border: 1px solid #eb482f;
+  color: #eb482f;
   opacity: 1;
 }
 .button--outline:hover {
-  border: 1px solid rgba(24,103,194,0.81);
+  border: 1px solid #eb482f;
   -webkit-transition: 0;
   -moz-transition: 0;
   -o-transition: 0;
@@ -875,7 +875,7 @@ h6 {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: rgba(24,103,194,0.81);
+  background-color: #eb482f;
   border: 0px solid currentColor;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -888,7 +888,7 @@ h6 {
   -webkit-box-shadow: none;
   box-shadow: none;
   background: transparent;
-  color: rgba(24,103,194,0.81);
+  color: #eb482f;
   border: none;
 }
 .button--quiet:disabled,
@@ -915,7 +915,7 @@ h6 {
   -o-transition: none;
   transition: none;
   opacity: 0.2;
-  color: rgba(24,103,194,0.81);
+  color: #eb482f;
 }
 /* topdoc
   name: Call To Action Button
@@ -961,7 +961,7 @@ h6 {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: rgba(24,103,194,0.81);
+  background-color: #eb482f;
   border: 0px solid currentColor;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -970,7 +970,7 @@ h6 {
   -o-transition: none;
   transition: none;
   border: none;
-  background-color: #25a6d9;
+  background-color: #f28227;
   color: #fff;
 }
 .button--cta:hover {
@@ -984,7 +984,7 @@ h6 {
 }
 .button--cta:active {
   color: var-button-cat-color;
-  background-color: #25a6d9;
+  background-color: #f28227;
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
@@ -1014,7 +1014,7 @@ h6 {
   text-align: center;
 }
 .button--large:active {
-  background-color: rgba(24,103,194,0.81);
+  background-color: #eb482f;
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
@@ -1083,7 +1083,7 @@ h6 {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: rgba(24,103,194,0.81);
+  background-color: #eb482f;
   border: 0px solid currentColor;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -1101,7 +1101,7 @@ h6 {
   border: 1px solid transparent;
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: rgba(24,103,194,0.81);
+  color: #eb482f;
   text-align: center;
 }
 .button--large--quiet:active {
@@ -1110,7 +1110,7 @@ h6 {
   -o-transition: none;
   transition: none;
   opacity: 0.2;
-  color: rgba(24,103,194,0.81);
+  color: #eb482f;
   background: transparent;
   border: 1px solid transparent;
   -webkit-box-shadow: none;
@@ -1174,7 +1174,7 @@ h6 {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: rgba(24,103,194,0.81);
+  background-color: #eb482f;
   border: 0px solid currentColor;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -1183,7 +1183,7 @@ h6 {
   -o-transition: none;
   transition: none;
   border: none;
-  background-color: #25a6d9;
+  background-color: #f28227;
   color: #fff;
   font-size: 17px;
   font-weight: 500;
@@ -1204,7 +1204,7 @@ h6 {
 }
 .button--large--cta:active {
   color: #fff;
-  background-color: #25a6d9;
+  background-color: #f28227;
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
@@ -1287,15 +1287,15 @@ h6 {
   appearance: none;
 }
 .button-bar__item:first-child > .button-bar__button {
-  border-left: 1px solid rgba(18,114,224,0.77);
-  border-right: 1px solid rgba(18,114,224,0.77);
+  border-left: 1px solid rgba(235,94,47,0.84);
+  border-right: 1px solid rgba(235,94,47,0.84);
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 .button-bar__item:last-child > .button-bar__button {
-  border-right: 1px solid rgba(18,114,224,0.77);
+  border-right: 1px solid rgba(235,94,47,0.84);
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
@@ -1310,11 +1310,11 @@ h6 {
   -webkit-border-radius: inherit;
   border-radius: inherit;
   background-color: transparent;
-  color: rgba(18,114,224,0.77);
-  border: 0px solid rgba(18,114,224,0.77);
-  border-top: 1px solid rgba(18,114,224,0.77);
-  border-bottom: 1px solid rgba(18,114,224,0.77);
-  border-right: 1px solid rgba(18,114,224,0.77);
+  color: rgba(235,94,47,0.84);
+  border: 0px solid rgba(235,94,47,0.84);
+  border-top: 1px solid rgba(235,94,47,0.84);
+  border-bottom: 1px solid rgba(235,94,47,0.84);
+  border-right: 1px solid rgba(235,94,47,0.84);
   font-weight: 400;
   padding: 0 8px;
   height: 27px;
@@ -1331,11 +1331,11 @@ h6 {
 }
 .button-bar__button:active,
 :active + .button-bar__button {
-  background-color: rgba(18,114,224,0.2);
-  border: 0px solid rgba(18,114,224,0.77);
-  border-top: 1px solid rgba(18,114,224,0.77);
-  border-bottom: 1px solid rgba(18,114,224,0.77);
-  border-right: 1px solid rgba(18,114,224,0.77);
+  background-color: rgba(235,94,47,0.2);
+  border: 0px solid rgba(235,94,47,0.84);
+  border-top: 1px solid rgba(235,94,47,0.84);
+  border-bottom: 1px solid rgba(235,94,47,0.84);
+  border-right: 1px solid rgba(235,94,47,0.84);
   height: 27px;
   line-height: 27px;
   font-size: 13px;
@@ -1347,7 +1347,7 @@ h6 {
 }
 .button-bar__item.active > .button-bar__button,
 :checked + .button-bar__button {
-  background-color: rgba(18,114,224,0.77);
+  background-color: rgba(235,94,47,0.84);
   color: #fff;
   -webkit-transition: none;
   -moz-transition: none;
@@ -1467,8 +1467,8 @@ h6 {
   margin: 0;
   padding: 0;
   height: 49px;
-  background-color: #222;
-  border-top: 1px solid rgba(0,0,0,0);
+  background-color: #fff;
+  border-top: 1px solid #ddd;
   width: 100%;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1478,10 +1478,10 @@ h6 {
     background-size: 100% 1px;
     background-repeat: no-repeat;
     background-position: top;
-    background-image: -webkit-linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
-    background-image: -moz-linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
-    background-image: -o-linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
-    background-image: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
+    background-image: -webkit-linear-gradient(270deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: -moz-linear-gradient(270deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: -o-linear-gradient(270deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%);
   }
 }
 .tab-bar__item {
@@ -1549,7 +1549,7 @@ h6 {
   padding: 0;
   height: 49px;
   letter-spacing: 0;
-  color: #999;
+  color: #ccc;
   text-shadow: 0 1px none;
   vertical-align: top;
   background-color: transparent;
@@ -1593,17 +1593,17 @@ h6 {
   padding: 0;
 }
 .tab-bar__button {
-  color: #999;
+  color: #ccc;
 }
 :checked + .tab-bar__button {
-  color: #7abfff;
+  color: #eb5e2f;
   background-color: transparent;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-top: none;
 }
 :checked + .tab-bar__button > .tab-bar__icon {
-  color: #7abfff;
+  color: #eb5e2f;
 }
 .tab-bar__button:disabled {
   opacity: 0.3;
@@ -1705,7 +1705,7 @@ h6 {
   right: 0px;
   bottom: auto;
   border-top: none;
-  border-bottom: 1px solid rgba(0,0,0,0);
+  border-bottom: 1px solid #ddd;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .tab-bar--top {
@@ -1714,10 +1714,10 @@ h6 {
     background-size: 100% 1px;
     background-repeat: no-repeat;
     background-position: bottom;
-    background-image: -webkit-linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
-    background-image: -moz-linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
-    background-image: -o-linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
-    background-image: linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
+    background-image: -webkit-linear-gradient(90deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: -moz-linear-gradient(90deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: -o-linear-gradient(90deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
   }
 }
 .tab-bar--top__content {
@@ -1761,7 +1761,7 @@ h6 {
 }
 :checked + .tab-bar--top-border__button {
   background-color: transparent;
-  border-bottom: 4px solid #7abfff;
+  border-bottom: 4px solid #eb5e2f;
 }
 /* topdoc
   name: Notification
@@ -1806,7 +1806,7 @@ h6 {
   height: 19px;
   -webkit-border-radius: 19px;
   border-radius: 19px;
-  background-color: #dc5236;
+  background-color: #eb5e2f;
   color: #fff;
   text-align: center;
   font-size: 16px;
@@ -1840,7 +1840,7 @@ h6 {
   font-size: 17px;
   padding: 4px 10px;
   letter-spacing: 0;
-  color: rgba(38,100,171,0.81);
+  color: #eb5e2f;
   text-shadow: 0 1px none;
   vertical-align: baseline;
   background-color: rgba(0,0,0,0);
@@ -1888,7 +1888,7 @@ h6 {
   transition: none;
 }
 .toolbar-button--outline {
-  border: 1px solid rgba(38,100,171,0.81);
+  border: 1px solid #eb5e2f;
   margin: auto 8px;
   padding-left: 6px;
   padding-right: 6px;
@@ -1981,11 +1981,11 @@ h6 {
   width: 0;
 }
 .checkbox > input[type="checkbox"]:checked {
-  background: rgba(24,103,194,0.81);
+  background: #eb482f;
 }
 .checkbox > input[type="checkbox"]:checked + .checkbox__checkmark:before {
-  background: rgba(24,103,194,0.81);
-  border: 1px solid rgba(24,103,194,0.81);
+  background: #eb482f;
+  border: 1px solid #eb482f;
 }
 .checkbox > input[type="checkbox"]:checked + .checkbox__checkmark:after {
   opacity: 1;
@@ -2001,7 +2001,7 @@ h6 {
   width: 24px;
   height: 24px;
   background: transparent;
-  border: 1px solid rgba(24,103,194,0.81);
+  border: 1px solid #eb482f;
   -webkit-border-radius: 16px;
   border-radius: 16px;
   -webkit-box-shadow: none;
@@ -2210,7 +2210,7 @@ h6 {
   width: 12px;
   height: 6px;
   background: transparent;
-  border: 3px solid rgba(24,103,194,0.81);
+  border: 3px solid #eb482f;
   border-width: 2px;
   border-top: none;
   border-right: none;
@@ -2375,7 +2375,7 @@ h6 {
   width: 12px;
   height: 6px;
   background: transparent;
-  border: 3px solid rgba(24,103,194,0.81);
+  border: 3px solid #eb482f;
   border-width: 2px;
   border-top: none;
   border-right: none;
@@ -2422,7 +2422,7 @@ h6 {
   font-size: 15px;
   font-weight: 500;
   background-color: #eee;
-  color: #1f1f21;
+  color: #333;
   text-shadow: none;
   border-top: none;
   border-bottom: none;
@@ -2436,10 +2436,10 @@ h6 {
     background-size: 100% 1px;
     background-repeat: no-repeat;
     background-position: top;
-    background-image: -webkit-linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
-    background-image: -moz-linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
-    background-image: -o-linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
-    background-image: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
+    background-image: -webkit-linear-gradient(270deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: -moz-linear-gradient(270deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: -o-linear-gradient(270deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%);
   }
 }
 .list {
@@ -2499,7 +2499,7 @@ h6 {
   margin: 0 0 0 0;
   border-top: none;
   border-bottom: 1px solid #ddd;
-  color: #1f1f21;
+  color: #333;
   background-color: transparent;
   min-height: 44px;
   line-height: 44px;
@@ -2884,7 +2884,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   background-color: #f9f9f9;
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: #1f1f21;
+  color: #333;
   padding: 4px 0 0 28px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -2899,7 +2899,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 }
 .search-input:focus {
   background-color: #f9f9f9;
-  color: #1f1f21;
+  color: #333;
   border: 1px solid #ddd;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -2958,7 +2958,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   background-color: #f9f9f9;
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: #1f1f21;
+  color: #333;
   padding: 4px 8px 0 8px;
   margin: 0;
   font-size: 15px;
@@ -2985,7 +2985,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 }
 .text-input:invalid {
   border: 1px solid var-input-invalid-border-color;
-  color: #1f1f21;
+  color: #333;
 }
 /* topdoc
   name: Transparent Text Input
@@ -3023,7 +3023,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   background-color: #f9f9f9;
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: #1f1f21;
+  color: #333;
   padding: 4px 8px 0 8px;
   margin: 0;
   font-size: 15px;
@@ -3053,7 +3053,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 }
 .text-input--transparent:invalid {
   border: 1px solid var-input-invalid-border-color;
-  color: #1f1f21;
+  color: #333;
   border: none;
   background-color: transparent;
 }
@@ -3093,7 +3093,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   background-color: #f9f9f9;
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: #1f1f21;
+  color: #333;
   padding: 4px 8px 0 8px;
   margin: 0;
   font-size: 15px;
@@ -3125,7 +3125,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 }
 .text-input--underbar:invalid {
   border: 1px solid var-input-invalid-border-color;
-  color: #1f1f21;
+  color: #333;
   border: none;
   background-color: transparent;
   border-bottom: 1px solid var-input-invalid-border-color;
@@ -3167,7 +3167,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   border-radius: 4px;
   border: 1px solid #ddd;
   background-color: #f9f9f9;
-  color: #1f1f21;
+  color: #333;
   letter-spacing: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -3222,7 +3222,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   border-radius: 4px;
   border: none;
   background-color: transparent;
-  color: #1f1f21;
+  color: #333;
   letter-spacing: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -3440,7 +3440,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   height: 44px;
   line-height: 44px;
   outline: none;
-  color: rgba(24,103,194,0.81);
+  color: #eb482f;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .alert-dialog-button {
