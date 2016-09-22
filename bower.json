@@ -5,7 +5,7 @@
   "main": "onsenui.js",
   "monaca" : {
     "main": [
-      "js/onsenui.min.js",
+      "js/onsenui.js",
       "css/onsenui.css",
       "css/onsen-css-components.css"
     ],
