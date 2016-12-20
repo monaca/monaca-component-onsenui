@@ -1,4 +1,4 @@
-/*! onsenui - v2.0.4 - 2016-11-04 */
+/*! onsenui - v2.0.5 - 2016-12-19 */
 /*
 Copyright 2013-2015 ASIAL CORPORATION
 
@@ -351,6 +351,7 @@ limitations under the License.
 
 .ons-icon {
   display: inline-block;
+  line-height: inherit;
   font-style: normal;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
@@ -443,7 +444,7 @@ ons-input .text-input__label:not(.text-input--material__label) {
   display: none;
 }
 
-ons-input:not([float]) .text-input__label--active {
+ons-input:not([float]) .text-input--material__label--active {
   display: none;
 }
 

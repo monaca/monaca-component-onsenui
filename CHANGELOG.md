@@ -2,6 +2,24 @@
 CHANGELOG
 ====
 
+v2.0.5
+----
+ * core: Changed all elements to have default className token always. Fixed [#1711](https://github.com/OnsenUI/OnsenUI/issues/1711).
+ * ons-switch: Fix `disbled` to `disabled`.
+ * angular1: Fix [#1677](https://github.com/OnsenUI/OnsenUI/issues/1677).
+ * ons-tabbar: Fix [#1654](https://github.com/OnsenUI/OnsenUI/issues/1654).
+ * ons-input: Fix `float` attribute style.
+ * ons-input: Added `transparent` modifier for Material Design.
+ * ons-modal: Pages inside modal throw show and hide events.
+ * ons-page: Fixed infinite scroll for iOS.
+ * core: All animators are extendable.
+ * angular1: $event in event handlers is not empty anymore.
+ * core: Remove Windows Phone 10+ support temporarily.
+ * ons-carousel: initial-index works when the carousel is inside ons-navigator.
+ * ons-switch: Always triggers custom events and stops propagation from inner element events.
+ * ons-tab: Throws verbose error if cannot create pageElement.
+ * ons-dialog: Fix broken dialog animation on iOS 9.x and 10.x caused by `dialog-container` class.
+
 v2.0.4
 ----
  * angular1: Fix issue in event removal.
@@ -23,7 +41,6 @@ v2.0.2
  * ons-tab: Add `badge` attribute to display notification on tab.
  * ons.notification: Added `options.inputType` and `options.class`.
  * ons.notification: Fix [#1638](https://github.com/OnsenUI/OnsenUI/issues/1638).
- * angular2-binding: Added Angular 2 AOT support.
  * ons.notification: Fixed memory leak.
  * angular1: Fix [#1620](https://github.com/OnsenUI/OnsenUI/issues/1620).
  * ons-icon: Fix [#1636](https://github.com/OnsenUI/OnsenUI/issues/1636).
@@ -62,9 +79,6 @@ v2.0.0-rc.17
 
 v2.0.0-rc.16
 ----
- * angular2-binding: Removed `OnsPage`, `OnsAlertDialog` and `OnsPopover` directives.
- * angular2-binding: Renamed `PageParams` to `Params`.
- * angular2-binding: Added Angular2 API for `ons-alert-dialog`, `ons-popover`, `ons-dialog` and `ons-modal` components.
  * ons-splitter-side, ons-splitter-content: Added "page" and "pageLoader" property. Changed to use page-loader instead of `ons._internal.getPageHTMLAsync()`.
  * ons-navigator: Added "page" and "pageLoader" property. Changed to use page-loader instead of `ons._internal.getPageHTMLAsync()`.
  * ons-tabbar, ons-tab: Added "page" and "pageLoader" property. Changed to use page-loader instead of `ons._internal.getPageHTMLAsync()`.
