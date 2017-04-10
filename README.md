@@ -1,4 +1,4 @@
-# Onsen UI - Cross-platform HTML5 Mobile App Framework
+# [Onsen UI](https://onsen.io/) - Cross-platform HTML5 Mobile App Framework
 
 Onsen UI is a library of UI components to help you create beautiful hybrid and mobile web apps for both Android and iOS using Javascript.
 
@@ -8,6 +8,7 @@ Onsen UI is a library of UI components to help you create beautiful hybrid and m
 [![Circle CI](https://circleci.com/gh/OnsenUI/OnsenUI.svg?style=shield)](https://circleci.com/gh/OnsenUI/OnsenUI) 
 [![Coverage Status](https://coveralls.io/repos/OnsenUI/OnsenUI/badge.svg?branch=master&service=github)](https://coveralls.io/github/OnsenUI/OnsenUI?branch=master)
 [![npm version](https://badge.fury.io/js/onsenui.svg)](https://badge.fury.io/js/onsenui)
+[![CDNJS](https://img.shields.io/cdnjs/v/onsen.svg)](https://cdnjs.com/libraries/onsen)
 
 ![Onsen UI Todo App](https://cloud.githubusercontent.com/assets/6549462/17845137/8224b696-687a-11e6-8f7b-95b7e8f20f2d.gif)
 
@@ -52,7 +53,7 @@ There are lots of sample applications written using Onsen UI. Here are some exam
 
 ![Todo application](https://cloud.githubusercontent.com/assets/6549462/17846105/8aedd1fc-6881-11e6-9c26-44289b0451f9.png)
 
-[Download source code](https://github.com/frankdiox/OnsenUI-Todo-App)
+[Download source code](https://github.com/frandiox/OnsenUI-Todo-App)
 
 ## What is Onsen UI?
 
@@ -72,9 +73,9 @@ There are lots of sample applications written using Onsen UI. Here are some exam
 
 Onsen UI is tested with the following browsers and mobile OS.
 
- * Android 4.4+ (and Android 4.0+ with Crosswalk engine)
- * iOS8+
- * Google Chrome
+ * Android 4.4.4+ (and Android 4.0+ with Crosswalk engine)
+ * iOS 8+
+ * Chrome
  * Safari
 
 ## What's Included
@@ -127,6 +128,10 @@ $ npm install angular2-onsenui
 Clone this repository and run the following commands to build the project:
 
 ```bash
+$ cd css-components
+$ yarn
+$ gulp build
+$ cd ..
 $ yarn
 $ gulp build
 ```
@@ -199,7 +204,7 @@ The next step is to run the release script:
 
 ```
 cd scripts
-node dist-release.js
+sh dist-release.sh
 ```
 
 This will build Onsen UI and put the files in the `OnsenUI-dist` directory.
