@@ -79,7 +79,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   background-color: #f9f9f9;
   position: absolute;
   top: 0;
@@ -115,13 +114,35 @@ h4, h5, h6 {
 .page--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
 }
 .page--material__content {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
+  font-weight: 400;
 }
-/* FIXME */
+.page__content h1,
+.page__content h2,
+.page__content h3,
+.page__content h4,
+.page__content h5 {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-weight: bold;
+  margin: 0.6em 0;
+  padding: 0;
+}
+.page__content h1 {
+  font-size: 28px;
+}
+.page__content h2 {
+  font-size: 24px;
+}
+.page__content h3 {
+  font-size: 20px;
+}
 .page--material__content h1,
 .page--material__content h2,
 .page--material__content h3,
@@ -130,6 +151,18 @@ h4, h5, h6 {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
+  font-weight: bold;
+  margin: 0.6em 0;
+  padding: 0;
+}
+.page--material__content h1 {
+  font-size: 28px;
+}
+.page--material__content h2 {
+  font-size: 24px;
+}
+.page--material__content h3 {
+  font-size: 20px;
 }
 .page--material__background {
   background-color: #ffffff;
@@ -316,6 +349,7 @@ h4, h5, h6 {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  z-index: 0;
 }
 .switch--material__handle {
   background-color: #f1f1f1;
@@ -392,6 +426,7 @@ h4, h5, h6 {
   background-position: left center;
   background-size: 100% 2px;
   background-repeat: no-repeat;
+  background-color: transparent;
   overflow: visible;
 }
 .range__input {
@@ -423,9 +458,7 @@ h4, h5, h6 {
 .range__input::-moz-range-track {
   position: relative;
   border: none;
-  background-color: #ccc;
-  height: 2px;
-  border-radius: 30px;
+  background: none;
   box-shadow: none;
   top: 0;
   margin: 0;
@@ -534,17 +567,18 @@ h4, h5, h6 {
   background-image: -webkit-radial-gradient(circle cover, #009688 0%, #009688 6.6px, transparent 7.2px);
   background-image: radial-gradient(circle cover, #009688 0%, #009688 6.6px, transparent 7.2px);
 }
-.range--material__input::-moz-range-thumb {
-  top: 1px;
-  border: 3px solid #e0e0e0;
-  height: 12px;
-  width: 12px;
-  border-radius: 100%;
-  border-color: #009688;
-  background-color: #009688;
+.range--material__input::-moz-range-thumb,
+.range--material__input:focus::-moz-range-thumb {
+  box-sizing: border-box;
+  border: none;
+  height: 36px;
+  width: 14px;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: -moz-radial-gradient(circle cover, #009688 0%, #009688 6.6px, transparent 7.2px);
 }
 .range--material__input::-moz-range-track {
-  background-color: #e0e0e0;
+  background: none;
 }
 .range--material__input::-ms-thumb {
   margin-top: 1px;
@@ -573,10 +607,6 @@ h4, h5, h6 {
   transition: -webkit-transform 0.1s linear;
   transition: transform 0.1s linear;
   transition: transform 0.1s linear, -webkit-transform 0.1s linear;
-}
-.range--material__input:focus::-moz-range-thumb {
-  border-color: #009688;
-  background-color: #009688;
 }
 .range--material__input::-moz-range-thumb:before {
   display: none;
@@ -654,7 +684,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -694,7 +723,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   box-sizing: border-box;
   background-clip: padding-box;
   white-space: nowrap;
@@ -877,7 +905,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   box-sizing: border-box;
   background-clip: padding-box;
   white-space: nowrap;
@@ -940,15 +967,15 @@ h4, h5, h6 {
   markup: |
     <div class="toolbar">
       <div class="toolbar__center">
-        <div class="button-bar" style="width:200px;margin:7px 50px;">
-          <div class="button-bar__item">
-            <input type="radio" class="button-bar__input" name="navi-segment-a" checked>
-            <div class="button-bar__button">One</div>
+        <div class="segment" style="width:200px;margin:7px 50px;">
+          <div class="segment__item">
+            <input type="radio" class="segment__input" name="navi-segment-a" checked>
+            <div class="segment__button">One</div>
           </div>
 
-          <div class="button-bar__item">
-            <input type="radio" class="button-bar__input" name="navi-segment-a">
-            <div class="button-bar__button">Two</div>
+          <div class="segment__item">
+            <input type="radio" class="segment__input" name="navi-segment-a">
+            <div class="segment__button">Two</div>
           </div>
         </div>
       </div>
@@ -1008,6 +1035,7 @@ h4, h5, h6 {
 .toolbar--material__left, .toolbar--material__right {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   font-size: 20px;
   font-weight: 500;
   color: #ffffff;
@@ -1019,6 +1047,7 @@ h4, h5, h6 {
 .toolbar--material__center {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   font-size: 20px;
   font-weight: 500;
   color: #ffffff;
@@ -1117,7 +1146,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1225,7 +1253,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1300,7 +1327,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1405,7 +1431,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1484,7 +1509,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1561,7 +1585,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1588,6 +1611,7 @@ h4, h5, h6 {
       0 3px 1px -2px rgba(0, 0, 0, .2);
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   min-height: 36px;
   line-height: 36px;
   padding: 0 16px;
@@ -1641,7 +1665,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1668,6 +1691,7 @@ h4, h5, h6 {
       0 3px 1px -2px rgba(0, 0, 0, .2);
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   min-height: 36px;
   line-height: 36px;
   padding: 0 16px;
@@ -1727,7 +1751,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1747,7 +1770,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   border-radius: 0;
   width: 100%;
   padding: 0;
@@ -1756,32 +1778,11 @@ h4, h5, h6 {
   overflow: hidden;
   box-sizing: border-box;
 }
-.button-bar__input {
-  position: absolute;
-  overflow: hidden;
-  right: 0;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  padding: 0;
-  border: 0;
-  opacity: 0.001;
-  z-index: 1;
-  vertical-align: top;
-  outline: none;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
 .button-bar__button {
   font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   border-radius: 0;
   background-color: transparent;
   color: rgba(18, 114, 224, .77);
@@ -1842,21 +1843,189 @@ h4, h5, h6 {
   name: Segment
   category: Segment
   markup: |
-    <div class="button-bar" style="width:280px;margin:0 auto;">
-      <div class="button-bar__item">
-        <input type="radio" class="button-bar__input" name="segment-a" checked>
-        <button class="button-bar__button">One</button>
+    <div class="segment" style="width: 280px; margin: 0 auto;">
+      <div class="segment__item">
+        <input type="radio" class="segment__input" name="segment-a" checked>
+        <button class="segment__button">One</button>
       </div>
-      <div class="button-bar__item">
-        <input type="radio" class="button-bar__input" name="segment-a">
-        <button class="button-bar__button">Two</button>
+      <div class="segment__item">
+        <input type="radio" class="segment__input" name="segment-a">
+        <button class="segment__button">Two</button>
       </div>
-      <div class="button-bar__item">
-        <input type="radio" class="button-bar__input" name="segment-a">
-        <button class="button-bar__button">Three</button>
+      <div class="segment__item">
+        <input type="radio" class="segment__input" name="segment-a">
+        <button class="segment__button">Three</button>
       </div>
     </div>
 */
+.segment {
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.segment__item {
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  border-radius: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.segment__input {
+  position: absolute;
+  overflow: hidden;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0.001;
+  z-index: 1;
+  vertical-align: top;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.segment__button {
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  border-radius: 0;
+  background-color: transparent;
+  color: rgba(18, 114, 224, .77);
+  border: 1px solid rgba(18, 114, 224, .77);
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-left-width: 0;
+  font-weight: 400;
+  padding: 0;
+  font-size: 13px;
+  height: 29px;
+  line-height: 29px;
+  width: 100%;
+  -webkit-transition: background-color 0.2s linear, color 0.2s linear;
+  transition: background-color 0.2s linear, color 0.2s linear;
+  box-sizing: border-box;
+}
+.segment__button:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+.segment__button:hover {
+  -webkit-transition: none;
+  transition: none;
+}
+.segment__button:focus {
+  outline: 0;
+}
+:active + .segment__button {
+  background-color: rgba(205, 225, 248, 0.931);
+  border: 0 solid rgba(18, 114, 224, .77);
+  border-top: 1px solid rgba(18, 114, 224, .77);
+  border-bottom: 1px solid rgba(18, 114, 224, .77);
+  border-right: 1px solid rgba(18, 114, 224, .77);
+  font-size: 13px;
+  width: 100%;
+  -webkit-transition: none;
+  transition: none;
+}
+:checked + .segment__button {
+  background-color: rgba(18, 114, 224, .77);
+  color: #fff;
+  -webkit-transition: none;
+  transition: none;
+}
+.segment__item:first-child > .segment__button {
+  border-left-width: 1px;
+  border-radius: 4px 0 0 4px;
+}
+.segment__item:last-child > .segment__button {
+  border-right-width: 1px;
+  border-radius: 0 4px 4px 0;
+}
+/*~
+  name: Material Segment
+  category: Segment
+  markup: |
+    <div class="segment segment--material" style="width: 280px; margin: 0 auto;">
+      <div class="segment__item segment--material__item">
+        <input type="radio" class="segment__input segment--material__input" name="segment-b" checked>
+        <button class="segment__button segment--material__button">One</button>
+      </div>
+      <div class="segment__item segment--material__item">
+        <input type="radio" class="segment__input segment--material__input" name="segment-b">
+        <button class="segment__button segment--material__button">Two</button>
+      </div>
+      <div class="segment__item segment--material__item">
+        <input type="radio" class="segment__input segment--material__input" name="segment-b">
+        <button class="segment__button segment--material__button">Three</button>
+      </div>
+    </div>
+*/
+.segment--material {
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .24);
+}
+.segment--material__button {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+  border-width: 0;
+  color: rgba(0, 0, 0, .38);
+  border-radius: 0;
+  background-color: #fafafa;
+}
+.segment--material__item:first-child > .segment--material__button,
+.segment--material__item:last-child > .segment--material__button {
+  border-radius: 0;
+  border-width: 0;
+}
+:active + .segment--material__button {
+  background-color: #fafafa;
+  border-radius: 0;
+  border-width: 0;
+  font-size: 14px;
+  -webkit-transition: none;
+  transition: none;
+  color: rgba(0, 0, 0, .38);
+}
+:checked + .segment--material__button {
+  background-color: #c8c8c8;
+  color: #353535;
+  border-radius: 0;
+  border-width: 0;
+}
 :root { /* Text color */ /* Text color active */
 }
 /*~
@@ -1924,7 +2093,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   display: table;
   table-layout: fixed;
   position: absolute;
@@ -1954,7 +2122,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   position: relative;
   display: table-cell;
   width: auto;
@@ -1985,7 +2152,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   box-sizing: border-box;
   background-clip: padding-box;
   padding: 0;
@@ -2037,7 +2203,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
 }
 .tabbar__badge.notification { /* FIXME */
   position: absolute;
@@ -2257,6 +2422,7 @@ h4, h5, h6 {
   font-weight: 500;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
 }
 .tabbar--material__button:after {
   content: '';
@@ -2346,10 +2512,12 @@ h4, h5, h6 {
 .tabbar--material__label {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
 }
 .tabbar--material__label:first-child {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   letter-spacing: 0.015em;
   font-weight: 500;
   font-size: 14px;
@@ -2376,7 +2544,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   padding: 4px 10px;
   letter-spacing: 0;
   color: rgba(38, 100, 171, .81);
@@ -2528,7 +2695,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   line-height: 24px;
 }
 .checkbox__checkmark {
@@ -2546,7 +2712,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   position: relative;
   height: 24px;
   width: 24px;
@@ -2661,7 +2826,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   line-height: 24px;
   position: relative;
 }
@@ -2779,6 +2943,7 @@ h4, h5, h6 {
   line-height: 18px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
 }
 .checkbox--material__checkmark {
   width: 18px;
@@ -2914,7 +3079,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   position: relative;
   position: relative;
   width: 24px;
@@ -2989,6 +3153,7 @@ h4, h5, h6 {
   line-height: 20px + 2px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
 }
 .radio-button--material__checkmark {
   width: 20px;
@@ -3079,7 +3244,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   list-style-type: none;
   text-align: left;
   display: block;
@@ -3695,6 +3859,7 @@ h4, h5, h6 {
 .list--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   background-image: none;
 }
 .list-item--material {
@@ -3789,14 +3954,25 @@ h4, h5, h6 {
   font-size: 14px;
   text-transform: none;
   margin: -1px 0 0 0;
-  color: #6c6c6c;
+  color: #757575;
   font-weight: 500;
   padding: 8px 16px;
 }
 .list-header--material:not(:first-of-type) {
-  border-top: 1px solid #eee;
+  border-top: none;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-image: -webkit-linear-gradient(top, #eee, #eee 100%);
+  background-image: linear-gradient(180deg, #eee, #eee 100%);
   padding-top: 16px;
 }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .list-header--material:not(:first-of-type) {
+    background-image: -webkit-linear-gradient(top, #eee, #eee 50%, transparent 50%);
+    background-image: linear-gradient(180deg, #eee, #eee 50%, transparent 50%);
+  }
+  }
 /*~
   name: Material List with Checkboxes
   category: List
@@ -3971,10 +4147,76 @@ h4, h5, h6 {
   background-image: none;
 }
 /*~
+  name: List title
+  category: List
+  markup: |
+    <div class="list-title">LIST TITLE</div>
+    <ul class="list">
+      <li class="list-item">
+        <div class="list-item__center">Item</div>
+      </li>
+      <li class="list-item">
+        <div class="list-item__center">Item</div>
+      </li>
+    </ul>
+ */
+.list-title {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  line-height: normal;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  display: block;
+  color: #6d6d72;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0 0 0 16px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 24px;
+}
+/*~
+  name: Material List Title
+  category: List
+  markup: |
+    <h3 class="list-title list-title--material">LIST TITLE</h3>
+    <ul class="list list--material">
+      <li class="list-item list-item--material">
+        <div class="list-item__center list-item--material__center">Item</div>
+      </li>
+      <li class="list-item list-item--material">
+        <div class="list-item__center list-item--material__center">Item</div>
+      </li>
+    </ul>
+ */
+.list-title--material {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  color: #757575;
+  font-size: 14px;
+  margin: 0;
+  padding: 12px 0 12px 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+/*~
   name: Search Input
   category: Search Input
   markup: |
-    <input type="search" value="" placeholder="Search" class="search-input" style="width: 200px;">
+    <input type="search" value="" placeholder="Search" class="search-input" style="width: 280px;">
 */
 .search-input {
   box-sizing: border-box;
@@ -3992,25 +4234,23 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   -webkit-appearance: textfield;
      -moz-appearance: textfield;
           appearance: textfield;
   box-sizing: border-box;
-  height: 31px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
+  height: 28px;
+  font-size: 14px;
+  background-color: rgba(3, 3, 3, .09);
   box-shadow: none;
   color: #1f1f21;
   line-height: 1.3;
-  padding: 0 0 0 28px;
+  padding: 0 8px 0 28px;
   margin: 0;
-  border-radius: 4px;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNDFweCcgaGVpZ2h0PSc0MHB4JyB2aWV3Qm94PScwIDAgNDEgNDAnIHZlcnNpb249JzEuMScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluaycgeG1sbnM6c2tldGNoPSdodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMnPjx0aXRsZT5TbGljZSAxPC90aXRsZT48ZGVzY3JpcHRpb24+Q3JlYXRlZCB3aXRoIFNrZXRjaCAoaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoKTwvZGVzY3JpcHRpb24+PGRlZnM+PC9kZWZzPjxnIGlkPSdQYWdlIDEnIHN0cm9rZT0nbm9uZScgc3Ryb2tlLXdpZHRoPScxJyBmaWxsPSdub25lJyBmaWxsLXJ1bGU9J2V2ZW5vZGQnPjxnIGlkPSdzZWFyY2gnIGZpbGw9JyNDNkM4QzgnPjxwYXRoIGQ9J00wLjUwNCwxNi4zMzggQzAuNTA0LDI1LjA4NSA3LjYzNSwzMi4xNjUgMTYuNDQ0LDMyLjE2NSBDMjUuMjQsMzIuMTY1IDMyLjM4MiwyNS4wODUgMzIuMzgyLDE2LjMzOCBDMzIuMzgyLDcuNTkxIDI1LjI0LDAuNSAxNi40NDQsMC41IEM3LjYzNSwwLjUgMC41MDQsNy41OTEgMC41MDQsMTYuMzM4IEwwLjUwNCwxNi4zMzggWiBNNS41NTUsMTYuMzM4IEM1LjU1NSwxMC4zNTkgMTAuNDIzLDUuNTIxIDE2LjQ0NSw1LjUyMSBDMjIuNDU1LDUuNTIxIDI3LjMzMywxMC4zNiAyNy4zMzMsMTYuMzM4IEMyNy4zMzMsMjIuMzE3IDIyLjQ1NSwyNy4xNTYgMTYuNDQ1LDI3LjE1NiBDMTAuNDIzLDI3LjE1NiA1LjU1NSwyMi4zMTYgNS41NTUsMTYuMzM4IEw1LjU1NSwxNi4zMzggWiBNMjcuNjY2LDMwLjg2MSBMMzQuNTIxLDM4LjY3IEMzNS42MjUsMzkuNzcyIDM2LjMzOCwzOS43ODEgMzcuNDYsMzguNjcgTDM5LjY2MSwzNi40ODkgQzQwLjc0MywzNS40MDggNDAuODExLDM0LjcxMSAzOS42NjEsMzMuNTY4IEwzMS43NjUsMjYuNzkzIEwyNy42NjYsMzAuODYxIEwyNy42NjYsMzAuODYxIFogTTI3LjY2NiwzMC44NjEnIGlkPSdTaGFwZSc+PC9wYXRoPjwvZz48L2c+PC9zdmc+');
+  border-radius: 5.5px;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTNweCIgaGVpZ2h0PSIxNHB4IiB2aWV3Qm94PSIwIDAgMTMgMTQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQyICgzNjc4MSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+aW9zLXNlYXJjaC1pbnB1dC1pY29uPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9ImNvbXBvbmVudHMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJpb3Mtc2VhcmNoLWlucHV0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDguMDAwMDAwLCAtNDMuMDAwMDAwKSIgZmlsbD0iIzdBNzk3QiI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDAuMDAwMDAwLCAzNi4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xNi45OTcyNDgyLDE1LjUwNDE0NjYgQzE3LjA3NzM2NTcsMTUuNTQwNTkzOCAxNy4xNTIyNzMxLDE1LjU5MTYxMjkgMTcuMjE3NzUxNiwxNS42NTcwOTE0IEwyMC42NDk5OTEsMTkuMDg5MzMwOCBDMjAuOTQ0ODQ0OSwxOS4zODQxODQ3IDIwLjk0ODQ3NjQsMTkuODU4NjA2IDIwLjY1MzU0MTIsMjAuMTUzNTQxMiBDMjAuMzYwNjQ4LDIwLjQ0NjQzNDQgMTkuODgxMjcxNiwyMC40NDE5MzE3IDE5LjU4OTMzMDgsMjAuMTQ5OTkxIEwxNi4xNTcwOTE0LDE2LjcxNzc1MTYgQzE2LjA5MTM3LDE2LjY1MjAzMDEgMTYuMDQwMTE3MSwxNi41NzczODc0IDE2LjAwMzQxNDEsMTYuNDk3Nzk5NSBDMTUuMTY3MTY5NCwxNy4xMjcwNDExIDE0LjEyNzEzOTMsMTcuNSAxMywxNy41IEMxMC4yMzg1NzYzLDE3LjUgOCwxNS4yNjE0MjM3IDgsMTIuNSBDOCw5LjczODU3NjI1IDEwLjIzODU3NjMsNy41IDEzLDcuNSBDMTUuNzYxNDIzNyw3LjUgMTgsOS43Mzg1NzYyNSAxOCwxMi41IEMxOCwxMy42Mjc0Njg1IDE3LjYyNjgyMzIsMTQuNjY3Nzc2OCAxNi45OTcyNDgyLDE1LjUwNDE0NjYgWiBNMTMsMTYuNSBDMTUuMjA5MTM5LDE2LjUgMTcsMTQuNzA5MTM5IDE3LDEyLjUgQzE3LDEwLjI5MDg2MSAxNS4yMDkxMzksOC41IDEzLDguNSBDMTAuNzkwODYxLDguNSA5LDEwLjI5MDg2MSA5LDEyLjUgQzksMTQuNzA5MTM5IDEwLjc5MDg2MSwxNi41IDEzLDE2LjUgWiIgaWQ9Imlvcy1zZWFyY2gtaW5wdXQtaWNvbiI+PC9wYXRoPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=');
   background-position: 8px center;
   background-repeat: no-repeat;
-  background-size: 16px;
+  background-size: 13px;
   font-weight: 400;
   display: inline-block;
   text-indent: 0;
@@ -4024,29 +4264,26 @@ h4, h5, h6 {
   display: none;
 }
 .search-input:focus {
-  background-color: #f9f9f9;
-  color: #1f1f21;
-  border: 1px solid #ccc;
-  box-shadow: none;
+  outline: none;
 }
 .search-input::-webkit-input-placeholder {
-  color: #999;
-  font-size: 15px;
+  color: #7a797b;
+  font-size: 14px;
   text-indent: 0;
 }
 .search-input::-moz-placeholder {
-  color: #999;
-  font-size: 15px;
+  color: #7a797b;
+  font-size: 14px;
   text-indent: 0;
 }
 .search-input:-ms-input-placeholder {
-  color: #999;
-  font-size: 15px;
+  color: #7a797b;
+  font-size: 14px;
   text-indent: 0;
 }
 .search-input::placeholder {
-  color: #999;
-  font-size: 15px;
+  color: #7a797b;
+  font-size: 14px;
   text-indent: 0;
 }
 .search-input:placeholder-shown {
@@ -4055,6 +4292,26 @@ h4, h5, h6 {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
+}
+/*~
+  name: Material Search Input
+  category: Search Input
+  markup: |
+    <input type="search" value="" placeholder="Search" class="search-input search-input--material" style="width: 280px;">
+*/
+.search-input--material {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  border-radius: 2px;
+  height: 48px;
+  background-color: #fafafa;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMThweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMTggMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQyICgzNjc4MSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+YW5kcm9pZC1zZWFyY2gtaW5wdXQtaWNvbjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJjb21wb25lbnRzIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBvcGFjaXR5PSIwLjU0Ij4KICAgICAgICA8ZyBpZD0ibWF0ZXJpYWwtc2VhcmNoIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNTIuMDAwMDAwLCAtNDEuMDAwMDAwKSIgZmlsbD0iIzAwMDAwMCI+CiAgICAgICAgICAgIDxnIGlkPSJzZWFyY2giIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMzLjAwMDAwMCwgMjYuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iTWF0ZXJpYWwvSWNvbnMtYmxhY2svc2VhcmNoIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNi4wMDAwMDAsIDEyLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xNS41MDIsOS40OTEgTDE0LjcwOCw5LjQ5MSBMMTQuNDMyLDkuNzY1IEMxNS40MDcsMTAuOTAyIDE2LDEyLjM3NiAxNiwxMy45OTEgQzE2LDE3LjU4MSAxMy4wOSwyMC40OTEgOS41LDIwLjQ5MSBDNS45MSwyMC40OTEgMywxNy41ODEgMywxMy45OTEgQzMsMTAuNDAxIDUuOTEsNy40OTEgOS41LDcuNDkxIEMxMS4xMTUsNy40OTEgMTIuNTg4LDguMDgzIDEzLjcyNSw5LjA1NyBMMTQuMDAxLDguNzgzIEwxNC4wMDEsNy45OTEgTDE4Ljk5OSwzIEwyMC40OSw0LjQ5MSBMMTUuNTAyLDkuNDkxIEwxNS41MDIsOS40OTEgWiBNOS41LDkuNDkxIEM3LjAxNCw5LjQ5MSA1LDExLjUwNSA1LDEzLjk5MSBDNSwxNi40NzYgNy4wMTQsMTguNDkxIDkuNSwxOC40OTEgQzExLjk4NSwxOC40OTEgMTQsMTYuNDc2IDE0LDEzLjk5MSBDMTQsMTEuNTA1IDExLjk4NSw5LjQ5MSA5LjUsOS40OTEgTDkuNSw5LjQ5MSBaIiBpZD0iU2hhcGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExLjc0NTAwMCwgMTEuNzQ1NTAwKSBzY2FsZSgxLCAtMSkgdHJhbnNsYXRlKC0xMS43NDUwMDAsIC0xMS43NDU1MDApICI+PC9wYXRoPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=');
+  background-size: 18px;
+  background-position: 18px center;
+  font-size: 14px;
+  padding: 0 24px 0 64px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .24), 0 1px 0 0 rgba(255, 255, 255, .6) inset;
 }
 /*~
   name: Text Input
@@ -4080,7 +4337,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   border: none;
   background-color: transparent;
   letter-spacing: 0;
@@ -4163,7 +4419,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   border: none;
   background-color: transparent;
   letter-spacing: 0;
@@ -4252,9 +4507,9 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   color: #212121;
   background-image: -webkit-linear-gradient(bottom, transparent 1px, #afafaf 1px);
   background-image: linear-gradient(to top, transparent 1px, #afafaf 1px);
@@ -4274,6 +4529,7 @@ h4, h5, h6 {
 .text-input--material__label {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   color: #afafaf;
   position: absolute;
   left: 0;
@@ -4359,7 +4615,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   border: none;
   background-color: transparent;
   letter-spacing: 0;
@@ -4398,7 +4653,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   vertical-align: top;
   resize: none;
   outline: none;
@@ -4453,7 +4707,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   vertical-align: top;
   resize: none;
   outline: none;
@@ -4523,7 +4776,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -4578,6 +4830,7 @@ h4, h5, h6 {
 .dialog--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   text-align: left;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14),
       0 6px 30px 5px rgba(0, 0, 0, .12),
@@ -4629,7 +4882,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -4653,7 +4905,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   font-size: 17px;
   font-weight: 500;
   padding: 0 8px;
@@ -4686,7 +4937,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -4883,6 +5133,7 @@ h4, h5, h6 {
 .alert-dialog-title--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   text-align: left;
   font-size: 20px;
   font-weight: 500;
@@ -4892,6 +5143,7 @@ h4, h5, h6 {
 .alert-dialog-content--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   text-align: left;
   font-size: 16px;
   font-weight: 400;
@@ -4909,6 +5161,7 @@ h4, h5, h6 {
 .alert-dialog-button--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   text-transform: uppercase;
   display: inline-block;
   width: auto;
@@ -5047,7 +5300,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   display: block;
   width: 220px;
   overflow: auto;
@@ -5273,6 +5525,7 @@ h4, h5, h6 {
   markup: |
     <svg class="progress-circular progress-circular--indeterminate">
       <circle class="progress-circular__primary progress-circular--indeterminate__primary"/>
+      <circle class="progress-circular__secondary progress-circular--indeterminate__secondary"/>
     </svg>
 
     <svg class="progress-circular">
@@ -5323,6 +5576,9 @@ h4, h5, h6 {
 .progress-circular--indeterminate__primary {
   -webkit-animation: progress__dash 1.5s ease-in-out infinite;
           animation: progress__dash 1.5s ease-in-out infinite;
+}
+.progress-circular--indeterminate__secondary {
+  display: none;
 }
 @-webkit-keyframes progress__rotate {
   100% {
@@ -5392,7 +5648,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -5400,6 +5655,7 @@ h4, h5, h6 {
           user-select: none;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   width: 56px;
   height: 56px;
   text-decoration: none;
@@ -5544,7 +5800,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, .7);
   position: absolute;
@@ -5576,7 +5831,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
@@ -5609,7 +5863,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   border: none;
   background-color: transparent;
   position: relative;
@@ -5694,9 +5947,9 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   color: rgba(0, 0, 0, 1);
   background-image: -webkit-linear-gradient(bottom, transparent 1px, rgba(0, 0, 0, .81) 1px);
   background-image: linear-gradient(to top, transparent 1px, rgba(0, 0, 0, .81) 1px);
@@ -5716,6 +5969,7 @@ h4, h5, h6 {
 .select-input--material__label {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
   color: rgba(0, 0, 0, .81);
   position: absolute;
   left: 0;
@@ -5801,7 +6055,6 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-size: 17px;
   border: none;
   background-color: transparent;
   position: relative;
@@ -5859,4 +6112,412 @@ h4, h5, h6 {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid #ccc;
+}
+/*~
+  name: Action Sheet
+  category: Action Sheet
+  markup: |
+    <div class="action-sheet-mask"></div>
+    <div class="action-sheet">
+      <div class="action-sheet-title">Title</div>
+      <button class="action-sheet-button">Label</button>
+      <button class="action-sheet-button">Cancel</button>
+    </div>
+*/
+/*~
+  name: Action Sheet with Delete Label
+  category: Action Sheet
+  markup: |
+    <div class="action-sheet-mask"></div>
+    <div class="action-sheet">
+      <button class="action-sheet-button">Label</button>
+      <button class="action-sheet-button action-sheet-button--destructive">Delete Label</button>
+      <button class="action-sheet-button">Cancel</button>
+    </div>
+*/
+.action-sheet {
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  cursor: default;
+  position: absolute;
+  left: 9px;
+  right: 9px;
+  bottom: 7px;
+  z-index: 2;
+}
+.action-sheet-button {
+  box-sizing: border-box;
+  height: 56px;
+  font-size: 20px;
+  text-align: center;
+  color: rgba(24, 103, 194, .81);
+  background-color: rgba(255, 255, 255, .9);
+  border-radius: 0;
+  line-height: 56px;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) 100%);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) 100%)
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .action-sheet-button {
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) 50%, transparent 50%);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) 50%, transparent 50%);
+  }
+  }
+.action-sheet-button:first-child {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.action-sheet-button:active {
+  background-color: #e9e9e9;
+  background-image: none;
+}
+.action-sheet-button:focus {
+  outline: none;
+}
+.action-sheet-button:nth-last-of-type(2) {
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  background-image: none;
+}
+.action-sheet-button:last-of-type {
+  border-radius: 12px;
+  margin: 7px 0 0 0;
+  background-color: #fff;
+  background-image: none;
+  font-weight: 600;
+}
+.action-sheet-button:last-of-type:active {
+  background-color: #e9e9e9;
+}
+.action-sheet-button--destructive {
+  color: #fe3824;
+}
+.action-sheet-title {
+  box-sizing: border-box;
+  height: 56px;
+  font-size: 13px;
+  color: #8f8e94;
+  text-align: center;
+  background-color: rgba(255, 255, 255, .9);
+  line-height: 56px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) 100%);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) 100%)
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .action-sheet-title {
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) 50%, transparent 50%);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) 50%, transparent 50%);
+  }
+  }
+.action-sheet-title:first-child {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.action-sheet-icon {
+  display: none;
+}
+.action-sheet-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .1);
+  z-index: 1;
+}
+/*~
+  name: Material Action Sheet
+  category: Action Sheet
+  markup: |
+    <div class="action-sheet-mask action-sheet-mask--material"></div>
+    <div class="action-sheet action-sheet--material">
+      <button class="action-sheet-button action-sheet-button--material"><i class="ion-android-checkbox-blank action-sheet-icon--material"></i>Label</button>
+      <button class="action-sheet-button action-sheet-button--material"><i class="ion-android-checkbox-blank action-sheet-icon--material"></i>Label</button>
+      <button class="action-sheet-button action-sheet-button--material"><i class="ion-android-close action-sheet-icon--material"></i>Cancel</button>
+    </div>
+*/
+/*~
+  name: Material Action Sheet with Title
+  category: Action Sheet
+  markup: |
+    <div class="action-sheet-mask action-sheet-mask--material"></div>
+    <div class="action-sheet action-sheet--material">
+      <div class="action-sheet-title action-sheet-title--material">Title</div>
+      <button class="action-sheet-button action-sheet-button--material"><i class="ion-android-checkbox-blank action-sheet-icon--material"></i>Label</button>
+      <button class="action-sheet-button action-sheet-button--material"><i class="ion-android-close action-sheet-icon--material"></i>Cancel</button>
+    </div>
+*/
+.action-sheet--material {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14),
+      0 6px 30px 5px rgba(0, 0, 0, .12),
+      0 8px 10px -5px rgba(0, 0, 0, .4);
+}
+.action-sheet-title--material {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  border-radius: 0;
+  background-image: none;
+  text-align: left;
+  height: 56px;
+  line-height: 56px;
+  font-size: 16px;
+  padding: 0 0 0 16px;
+  color: #686868;
+  background-color: white;
+  font-weight: 400;
+}
+.action-sheet-title--material:first-child {
+  border-radius: 0;
+}
+.action-sheet-button--material {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  border-radius: 0;
+  background-image: none;
+  height: 52px;
+  line-height: 52px;
+  text-align: left;
+  font-size: 16px;
+  padding: 0 0 0 16px;
+  color: #686868;
+  font-weight: 400;
+  background-color: white;
+}
+.action-sheet-button--material:first-child {
+  border-radius: 0;
+}
+.action-sheet-button--material:nth-last-of-type(2) {
+  border-radius: 0;
+}
+.action-sheet-button--material:last-of-type {
+  margin: 0;
+  border-radius: 0;
+  font-weight: 400;
+  background-color: white;
+}
+.action-sheet-icon--material {
+  display: inline-block;
+  float: left;
+  height: 52px;
+  line-height: 52px;
+  margin-right: 32px;
+  font-size: 26px;
+  width: 0.8em;
+  text-align: center;
+}
+.action-sheet-mask--material {
+  background-color: rgba(0, 0, 0, .2);
+}
+/*~
+  name: Card
+  category: Card
+  markup: |
+    <div style="background-color: #eee; height: 200px; padding: 1px 0 0 0;">
+      <div class="card">
+        <div class="card__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+    </div>
+*/
+.card {
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .12);
+  border-radius: 8px;
+  background-color: white;
+  box-sizing: border-box;
+  display: block;
+  margin: 8px;
+  padding: 16px;
+  text-align: left;
+}
+.card__content {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #030303;
+}
+/*~
+  name: Card with Title
+  category: Card
+  markup: |
+    <div style="background-color: #eee; height: 200px; padding: 1px 0 0 0;">
+      <div class="card">
+        <h2 class="card__title">Card Title</h2>
+        <div class="card__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+    </div>
+*/
+.card__title {
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 4px 0 8px 0;
+  padding: 0;
+  display: block;
+  box-sizing: border-box;
+}
+/*~
+  name: Material Card
+  category: Card
+  markup: |
+    <div style="background-color: #eee; height: 200px; padding: 1px 0 0 0;">
+      <div class="card card--material">
+        <div class="card__content card--material__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+    </div>
+*/
+.card--material {
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),
+      0 1px 5px 0 rgba(0, 0, 0, .12),
+      0 3px 1px -2px rgba(0, 0, 0, .2);
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+}
+.card--material__content {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, .54);
+}
+/*~
+  name: Material Card with Title
+  category: Card
+  markup: |
+    <div style="background-color: #eee; height: 200px; padding: 1px 0 0 0;">
+      <div class="card card--material">
+        <div class="card__title card--material__title">Card Title</div>
+        <div class="card__content card--material__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+    </div>
+*/
+.card--material__title {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 24px;
+  margin: 8px 0 12px 0;
+}
+/*~
+  name: Toast
+  category: Toast
+  markup: |
+    <div class="toast">
+      <div class="toast__message">Message Message Message Message Message Message</div>
+      <button class="toast__button">ACTION</button>
+    </div>
+*/
+.toast {
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  position: absolute;
+  z-index: 2;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  margin: 8px 0;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, .8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 48px;
+  line-height: 48px;
+  box-sizing: border-box;
+  padding: 0 16px;
+}
+.toast__message {
+  font-size: 14px;
+  color: white;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: left;
+  margin: 0 16px 0 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.toast__button {
+  font-size: 14px;
+  color: white;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background-color: transparent;
+  cursor: default;
+  text-transform: uppercase;
+}
+.toast__button:focus {
+  outline: none;
+}
+.toast__button:active {
+  opacity: 0.4;
+}
+/*~
+  name: Material Toast
+  category: Toast
+  markup: |
+    <div class="toast toast--material">
+      <div class="toast__message toast--material__message">Message Message Message Message Message Message</div>
+      <button class="toast__button toast--material__button">ACTION</button>
+    </div>
+*/
+.toast--material {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, .8);
+  border-radius: 0;
+  padding: 0 24px;
+}
+.toast--material__message {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  margin: 0 24px 0 0;
+}
+.toast--material__button {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  color: #80cbc4;
 }
