@@ -1,4 +1,4 @@
-/*! angular-onsenui.js for onsenui - v2.3.0 - 2017-05-18 */
+/*! angular-onsenui.js for onsenui - v2.3.2 - 2017-05-31 */
 "use strict";
 
 /* Simple JavaScript Inheritance for ES 5.1

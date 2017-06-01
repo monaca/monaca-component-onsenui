@@ -418,16 +418,15 @@ h4, h5, h6 {
 .range {
   display: inline-block;
   width: 100px;
-  height: 32px;
+  height: 30px;
   margin: 0;
   padding: 0;
-  background-image: -webkit-linear-gradient(#ccc, #ccc);
-  background-image: linear-gradient(#ccc, #ccc);
+  background-image: -webkit-linear-gradient(#a4aab3, #a4aab3);
+  background-image: linear-gradient(#a4aab3, #a4aab3);
   background-position: left center;
   background-size: 100% 2px;
   background-repeat: no-repeat;
   background-color: transparent;
-  overflow: visible;
 }
 .range__input {
   box-sizing: border-box;
@@ -449,8 +448,7 @@ h4, h5, h6 {
   background-position: left center;
   background-size: 0% 2px;
   background-repeat: no-repeat;
-  overflow: hidden;
-  height: 32px;
+  height: 30px;
   position: relative;
   z-index: 1;
   width: 100%;
@@ -467,19 +465,18 @@ h4, h5, h6 {
 .range__input::-ms-track {
   position: relative;
   border: none;
-  background-color: #ccc;
+  background-color: #a4aab3;
   height: 0;
   border-radius: 30px;
 }
 .range__input::-webkit-slider-thumb {
   cursor: pointer;
   position: relative;
-  height: 29px;
-  width: 29px;
+  height: 28px;
+  width: 28px;
   background-color: #fff;
-  border: 1px solid #ccc;
-  /* TODO: Add shadow */
-  /*box-shadow: 0 0 0 1px #e4e4e4, 0 3px 2px rgba(0, 0, 0, 0.25); */
+  border: none;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, .25), 0 3px 2px rgba(0, 0, 0, .25);
   border-radius: 30px;
   margin: 0;
   padding: 0;
@@ -492,12 +489,11 @@ h4, h5, h6 {
 .range__input::-moz-range-thumb {
   cursor: pointer;
   position: relative;
-  height: 29px;
-  width: 29px;
+  height: 28px;
+  width: 28px;
   background-color: #fff;
-  border: 1px solid #ccc;
-  /* TODO: Add shadow */
-  /*box-shadow: 0 0 0 1px #e4e4e4, 0 3px 2px rgba(0, 0, 0, 0.25); */
+  border: none;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, .25), 0 3px 2px rgba(0, 0, 0, .25);
   border-radius: 30px;
   margin: 0;
   padding: 0;
@@ -505,12 +501,11 @@ h4, h5, h6 {
 .range__input::-ms-thumb {
   cursor: pointer;
   position: relative;
-  height: 29px;
-  width: 29px;
+  height: 28px;
+  width: 28px;
   background-color: #fff;
-  border: 1px solid #ccc;
-  /* TODO: Add shadow */
-  /*box-shadow: 0 0 0 1px #e4e4e4, 0 3px 2px rgba(0, 0, 0, 0.25); */
+  border: none;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, .25), 0 3px 2px rgba(0, 0, 0, .25);
   border-radius: 30px;
   margin: 0;
   padding: 0;
@@ -555,7 +550,6 @@ h4, h5, h6 {
   background-image: linear-gradient(#009688, #009688);
   background-position: center left;
   background-size: 0% 2px;
-  overflow: visible;
 }
 .range--material__input::-webkit-slider-thumb {
   box-sizing: border-box;
@@ -566,6 +560,7 @@ h4, h5, h6 {
   background-color: transparent;
   background-image: -webkit-radial-gradient(circle cover, #009688 0%, #009688 6.6px, transparent 7.2px);
   background-image: radial-gradient(circle cover, #009688 0%, #009688 6.6px, transparent 7.2px);
+  box-shadow: none;
 }
 .range--material__input::-moz-range-thumb,
 .range--material__input:focus::-moz-range-thumb {
@@ -708,6 +703,22 @@ h4, h5, h6 {
 }
 .notification:empty {
   display: none;
+}
+/*~
+  name: Material Notification
+  category: Notification
+  markup: |
+    <span class="notification notification--material">1</span>
+    <span class="notification notification--material">10</span>
+    <span class="notification notification--material">999</span>
+*/
+.notification--material {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  background-color: #e91e63;
+  font-size: 16px;
+  font-weight: 500;
 }
 /*~
   name: Toolbar
@@ -5846,6 +5857,14 @@ h4, h5, h6 {
       <option>Option 2</option>
       <option>Option 3</option>
     </select>
+
+    &nbsp;
+
+    <select class="select-input" disabled>
+      <option>Option 1</option>
+      <option>Option 2</option>
+      <option>Option 3</option>
+    </select>
 */
 .select-input {
   box-sizing: border-box;
@@ -5866,10 +5885,23 @@ h4, h5, h6 {
   border: none;
   background-color: transparent;
   position: relative;
-  font-size: 15px;
-  height: 31px;
+  font-size: 17px;
+  height: 32px;
+  line-height: 32px;
   border-color: #ccc;
-  color: rgba(24, 103, 194, .81);
+  color: #000;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: inline-block;
+  border-radius: 0;
+  border: none;
+  padding: 0 20px 0 0;
+  background-color: transparent;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTBweCIgaGVpZ2h0PSI1cHgiIHZpZXdCb3g9IjAgMCAxMCA1IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0My4yICgzOTA2OSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+c2VsZWN0LWFsbG93PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9InNlbGVjdCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Imlvcy1zZWxlY3QiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xOTguMDAwMDAwLCAtMTE0LjAwMDAwMCkiIGZpbGw9IiM3NTc1NzUiPgogICAgICAgICAgICA8ZyBpZD0ibWVudS1iYXItKy1vcGVuLW1lbnUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyMy4wMDAwMDAsIDEwMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJtZW51LWJhciI+CiAgICAgICAgICAgICAgICAgICAgPHBvbHlnb24gaWQ9InNlbGVjdC1hbGxvdyIgcG9pbnRzPSI3NSAxNCA4MCAxOSA4NSAxNCI+PC9wb2x5Z29uPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=');
+  background-repeat: no-repeat;
+  background-position: right center;
+  border-bottom: none;
 }
 .select-input::-ms-clear {
   display: none;
@@ -5919,7 +5951,7 @@ h4, h5, h6 {
   color: #1f1f21;
 }
 .select-input[multiple] {
-  height: 62px;
+  height: 64px;
 }
 /*~
   name: Material Select Input
@@ -5930,41 +5962,30 @@ h4, h5, h6 {
       <option>Option 2</option>
       <option>Option 3</option>
     </select>
+
+    &nbsp;
+
+    <select class="select-input select-input--material" disabled>
+      <option>Option 1</option>
+      <option>Option 2</option>
+      <option>Option 3</option>
+    </select>
 */
 .select-input--material {
-  box-sizing: border-box;
-  background-clip: padding-box;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  background: transparent;
-  border: none;
-  vertical-align: top;
-  outline: none;
-  line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
-  background-image: -webkit-linear-gradient(bottom, transparent 1px, rgba(0, 0, 0, .81) 1px);
-  background-image: linear-gradient(to top, transparent 1px, rgba(0, 0, 0, .81) 1px);
-  background-size: 100% 2px;
+  font-size: 15px;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTBweCIgaGVpZ2h0PSI1cHgiIHZpZXdCb3g9IjAgMCAxMCA1IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0My4yICgzOTA2OSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+c2VsZWN0LWFsbG93PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9InNlbGVjdCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Imlvcy1zZWxlY3QiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xOTguMDAwMDAwLCAtMTE0LjAwMDAwMCkiIGZpbGw9IiM3NTc1NzUiPgogICAgICAgICAgICA8ZyBpZD0ibWVudS1iYXItKy1vcGVuLW1lbnUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyMy4wMDAwMDAsIDEwMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJtZW51LWJhciI+CiAgICAgICAgICAgICAgICAgICAgPHBvbHlnb24gaWQ9InNlbGVjdC1hbGxvdyIgcG9pbnRzPSI3NSAxNCA4MCAxOSA4NSAxNCI+PC9wb2x5Z29uPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4='), -webkit-linear-gradient(bottom, rgba(0, 0, 0, .12) 50%, rgba(0, 0, 0, .12) 50%);
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTBweCIgaGVpZ2h0PSI1cHgiIHZpZXdCb3g9IjAgMCAxMCA1IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0My4yICgzOTA2OSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+c2VsZWN0LWFsbG93PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9InNlbGVjdCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Imlvcy1zZWxlY3QiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xOTguMDAwMDAwLCAtMTE0LjAwMDAwMCkiIGZpbGw9IiM3NTc1NzUiPgogICAgICAgICAgICA8ZyBpZD0ibWVudS1iYXItKy1vcGVuLW1lbnUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyMy4wMDAwMDAsIDEwMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJtZW51LWJhciI+CiAgICAgICAgICAgICAgICAgICAgPHBvbHlnb24gaWQ9InNlbGVjdC1hbGxvdyIgcG9pbnRzPSI3NSAxNCA4MCAxOSA4NSAxNCI+PC9wb2x5Z29uPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4='), linear-gradient(to top, rgba(0, 0, 0, .12) 50%, rgba(0, 0, 0, .12) 50%);
+  background-size: auto, 100% 1px;
   background-repeat: no-repeat;
-  background-position: center bottom;
-  background-color: transparent;
-  font-size: 16px;
+  background-position: right center, left bottom;
+  border: none;
   font-weight: 400;
-  padding-bottom: 2px;
-  border-radius: 0;
-  height: 24px;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0); /* prevent ios flicker */
-  border: none;
 }
 .select-input--material__label {
   font-family: 'Roboto', 'Noto', sans-serif;
@@ -5987,13 +6008,6 @@ h4, h5, h6 {
   transition: color 0.1s ease-in, -webkit-transform 0.1s ease-in;
   transition: transform 0.1s ease-in, color 0.1s ease-in;
   transition: transform 0.1s ease-in, color 0.1s ease-in, -webkit-transform 0.1s ease-in;
-}
-.select-input--material:focus {
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, .15), rgba(0, 0, 0, .15)), -webkit-linear-gradient(bottom, transparent 1px, rgba(0, 0, 0, .81) 1px);
-  background-image: linear-gradient(rgba(0, 0, 0, .15), rgba(0, 0, 0, .15)), linear-gradient(to top, transparent 1px, rgba(0, 0, 0, .81) 1px);
-  -webkit-animation: material-select-input-animate 0.3s forwards;
-          animation: material-select-input-animate 0.3s forwards;
-  border-radius: 0;
 }
 .select-input--material::-webkit-input-placeholder {
   color: rgba(0, 0, 0, .81);
@@ -6038,34 +6052,18 @@ h4, h5, h6 {
       <option>Option 2</option>
       <option>Option 3</option>
     </select>
+
+    &nbsp;
+
+    <select class="select-input select-input--underbar" disabled>
+      <option>Option 1</option>
+      <option>Option 2</option>
+      <option>Option 3</option>
+    </select>
 */
 .select-input--underbar {
-  box-sizing: border-box;
-  background-clip: padding-box;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  background: transparent;
   border: none;
-  vertical-align: top;
-  outline: none;
-  line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  border: none;
-  background-color: transparent;
-  position: relative;
-  font-size: 15px;
-  height: 31px;
-  border-color: #ccc;
-  color: rgba(24, 103, 194, .81);
-  border: none;
-  background-color: transparent;
   border-bottom: 1px solid #ccc;
-  border-radius: 0;
 }
 .select-input--underbar:disabled {
   opacity: 0.3;
