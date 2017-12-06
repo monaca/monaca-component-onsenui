@@ -48,11 +48,11 @@ declare namespace ons {
    */
   function enableDeviceBackButtonHandler(): void;
   /**
-   * @description Enable status bar fill feature on iOS7 and above
+   * @description Enable status bar fill feature on iOS7 and above (except for iPhone X)
    */
   function enableAutoStatusBarFill(): void;
   /**
-   * @description Disable status bar fill feature on iOS7 and above
+   * @description Disable status bar fill feature on iOS7 and above (except for iPhone X)
    */
   function disableAutoStatusBarFill(): void;
   /**
@@ -67,8 +67,18 @@ declare namespace ons {
    * @description Enable animations (default).
    */
   function enableAnimations(): void;
+  /**
+   * @description Disable automatic styling.
+   */
   function disableAutoStyling(): void;
+  /**
+   * @description Enable automatic styling based on OS (default).
+   */
   function enableAutoStyling(): void;
+  /**
+   * @description Disable adding `fa-` prefix automatically to `ons-icon` classes. Useful when including custom icon packs.
+   */
+  function disableIconAutoPrefix(): void;
   /**
    * @description Refresh styling for the given platform. Only useful for demos. Use `ons.platform.select(...)` for development and production.
    */
@@ -232,10 +242,34 @@ declare namespace ons {
     function isAndroidTablet(): boolean;
 
     /**
+     * @description Returns whether app is running in UIWebView.
+     * @return {Boolean}
+     */
+    function isUIWebView(): boolean;
+
+    /**
+     * @description Returns whether app is running in iOS Safari.
+     * @return {Boolean}
+     */
+    function isIOSSafari(): boolean;
+
+    /**
+     * @description Returns whether app is running in WKWebView.
+     * @return {Boolean}
+     */
+    function isWKWebView(): boolean;
+
+    /**
      * @description Returns whether the device is iPhone
      * @return {Boolean}
      */
     function isIPhone(): boolean;
+
+    /**
+     * @description Returns whether the device is iPhone X
+     * @return {Boolean}
+     */
+    function isIPhoneX(): boolean;
 
     /**
      * @description Returns whether the device is iPad
@@ -708,7 +742,12 @@ declare namespace ons {
      * @description Default options object. Attributes have priority over this property.
      */
     options: NavigatorOptions;
-
+    /**
+     * @param {Number} index Decimal ratio of the current swipe.
+     * @param {Object} animationOptions Object containing duration and timing.
+     * @description Hook called whenever the user slides the navigator.
+     **/
+    onSwipe?: Function;
   }
 
   /**
@@ -825,6 +864,12 @@ declare namespace ons {
      * @return Resolves to the new page element
      */
     load(page: any, options?: SplitterSideOptions): Promise<HTMLElement>;
+    /**
+     * @param {Number} index Decimal ratio of the current swipe.
+     * @param {Object} animationOptions Object containing duration and timing.
+     * @description Hook called whenever the user slides the splitter.
+     **/
+    onSwipe?: Function;
   }
 
   interface OnsLazyRepeatElement extends HTMLElement {
