@@ -1877,18 +1877,18 @@ h4, h5, h6 {
   category: Segment
   markup: |
     <div class="segment" style="width: 280px; margin: 0 auto;">
-      <button class="segment__item">
+      <div class="segment__item">
         <input type="radio" class="segment__input" name="segment-a" checked>
         <div class="segment__button">One</div>
-      </button>
-      <button class="segment__item">
+      </div>
+      <div class="segment__item">
         <input type="radio" class="segment__input" name="segment-a">
         <div class="segment__button">Two</div>
-      </button>
-      <button class="segment__item">
+      </div>
+      <div class="segment__item">
         <input type="radio" class="segment__input" name="segment-a">
         <div class="segment__button">Three</div>
-      </button>
+      </div>
     </div>
 */
 .segment {
@@ -2007,18 +2007,18 @@ h4, h5, h6 {
   category: Segment
   markup: |
     <div class="segment segment--material" style="width: 280px; margin: 0 auto;">
-      <button class="segment__item segment--material__item">
+      <div class="segment__item segment--material__item">
         <input type="radio" class="segment__input segment--material__input" name="segment-b" checked>
         <div class="segment__button segment--material__button">One</div>
-      </button>
-      <button class="segment__item segment--material__item">
+      </div>
+      <div class="segment__item segment--material__item">
         <input type="radio" class="segment__input segment--material__input" name="segment-b">
         <div class="segment__button segment--material__button">Two</div>
-      </button>
-      <button class="segment__item segment--material__item">
+      </div>
+      <div class="segment__item segment--material__item">
         <input type="radio" class="segment__input segment--material__input" name="segment-b">
         <div class="segment__button segment--material__button">Three</div>
-      </button>
+      </div>
     </div>
 */
 .segment--material {
@@ -2235,17 +2235,26 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
+  display: inline-block;
 }
-.tabbar__badge.notification { /* FIXME */
-  position: absolute;
-  top: 5px;
+.tabbar__badge.notification {
+  vertical-align: text-bottom;
+  top: -1px;
+  margin-left: 5px;
   z-index: 10;
   font-size: 12px;
   height: 16px;
+  min-width: 16px;
   line-height: 16px;
   border-radius: 8px;
 }
+.tabbar__icon ~ .tabbar__badge.notification {
+  position: absolute;
+  top: 5px;
+  margin-left: 0;
+}
 .tabbar__icon + .tabbar__label {
+  display: block;
   font-size: 10px;
   line-height: 1;
   margin: 0;
@@ -3243,7 +3252,7 @@ h4, h5, h6 {
     </label>
 */
 .radio-button--material {
-  line-height: 20px + 2px;
+  line-height: 22px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
@@ -5667,6 +5676,9 @@ h4, h5, h6 {
 .progress-circular__background,
 .progress-circular__primary,
 .progress-circular__secondary {
+  cx: 50%;
+  cy: 50%;
+  r: 40%;
   -webkit-animation: none;
           animation: none;
   fill: none;

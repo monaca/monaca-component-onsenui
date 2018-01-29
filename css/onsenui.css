@@ -1,4 +1,4 @@
-/*! onsenui - v2.8.3 - 2017-12-14 */
+/*! onsenui - v2.9.1 - 2018-01-26 */
 @import url("ionicons/css/ionicons.min.css");
 @import url("material-design-iconic-font/css/material-design-iconic-font.min.css");
 @import url("font_awesome/css/font-awesome.min.css");
@@ -76,10 +76,6 @@ ons-bottom-toolbar {
   -ms-touch-action: pan-y;
 }
 
-.page__content--suppress-layer-creation {
-  -webkit-overflow-scrolling: auto;
-}
-
 .page.overflow-visible,
 .page.overflow-visible .page,
 .page.overflow-visible .page__content,
@@ -139,6 +135,10 @@ ons-tabbar[position="top"] .page[status-bar-fill] > .page__content {
 
 .page__content > .list:not(.list--material):first-child {
   margin-top: -1px; /* Avoid double border with toolbar */
+}
+
+.page--wrapper > .page__background {
+  display: none;
 }
 
 ons-action-sheet[disabled],
@@ -272,6 +272,13 @@ ons-carousel[fullscreen] {
   bottom: 0;
   position: inherit;
   width: 100%;
+}
+
+.ons-ios-scroll-fix .page:not(.page--wrapper)[shown] > .page__content {
+  overflow-y: hidden;
+}
+.ons-ios-scroll-fix ons-splitter-side > .page:not(.page--wrapper)[shown] > .page__content {
+  overflow-y: auto;
 }
 
 ons-row {
