@@ -1209,6 +1209,9 @@ h4, h5, h6 {
   border-radius: 3px;
   transition: none;
 }
+.button::-moz-focus-inner {
+  outline: 0;
+}
 .button:hover {
   transition: none;
 }
@@ -3396,8 +3399,8 @@ h4, h5, h6 {
   }
 }
 .list-item {
-  width: 100%;
   position: relative;
+  width: 100%;
   list-style: none;
   box-sizing: border-box;
   display: -webkit-box;
@@ -3417,6 +3420,78 @@ h4, h5, h6 {
   margin: 0 0 -1px 0;
   color: #1f1f21;
   transition: background-color 0.2s linear;
+}
+/*~
+  name: Expandable List
+  category: List
+  elements: ons-list ons-list-item
+  markup: |
+    <ul class="list">
+      <li class="list-item list-item--expandable expanded">
+        <div class="list-item__top">
+          <div class="list-item__center">Item</div>
+          <div class="list-item__right">
+            <span class="list-item__expand-chevron"></span>
+          </div>
+        </div>
+        <div class="list-item__expandable-content">Expanded content</div>
+      </li>
+    </ul>
+*/
+.list-item__top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 0;
+          order: 0;
+  width: 100%;
+}
+.list-item--expandable {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  border-bottom: none;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-image: linear-gradient(0deg, #ccc, #ccc 100%);
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .list-item--expandable {
+    background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
+  }
+}
+.list-item--expandable {
+  background-position-x: 14px;
+}
+.list-item__expandable-content {
+  display: none;
+  width: 100%;
+  padding: 12px 14px 12px 0;
+  box-sizing: border-box;
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+          order: 1;
+  overflow: hidden;
+}
+.list-item.expanded > .list-item__expandable-content {
+  display: block;
+  height: auto;
 }
 .list-item__left {
   box-sizing: border-box;
@@ -3989,7 +4064,7 @@ h4, h5, h6 {
 .list-item--material__right {
   min-height: 48px;
 }
-.list-item--material.list-item--longdivider {
+.list-item--material.list-item--expandable {
   border-bottom: 1px solid #eee;
   border-bottom: none;
   background-size: 100% 1px;
@@ -3998,7 +4073,27 @@ h4, h5, h6 {
   background-image: linear-gradient(0deg, #eee, #eee 100%);
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-  .list-item--material.list-item--longdivider {
+  .list-item--material.list-item--expandable {
+    background-image: linear-gradient(0deg, #eee, #eee 50%, transparent 50%);
+  }
+}
+.list-item--material.list-item--expandable {
+  background-position-x: 16px;
+}
+.list-item--material.list-item--longdivider,
+.list-item--material.list-item--expandable.list-item--longdivider
+ {
+  border-bottom: 1px solid #eee;
+  border-bottom: none;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-image: linear-gradient(0deg, #eee, #eee 100%);
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .list-item--material.list-item--longdivider,
+.list-item--material.list-item--expandable.list-item--longdivider
+ {
     background-image: linear-gradient(0deg, #eee, #eee 50%, transparent 50%);
   }
 }
@@ -4171,19 +4266,31 @@ h4, h5, h6 {
       </li>
     </ul>
  */
-.list-item--chevron:before {
+.list-item--chevron:before,
+.list-item__expand-chevron {
   border-right: 2px solid #c7c7cc;
   border-bottom: 2px solid #c7c7cc;
-  position: absolute;
-  content: '';
   width: 7px;
   height: 7px;
   background-color: transparent;
-  -webkit-transform: translateY(-50%) rotate(-45deg);
-          transform: translateY(-50%) rotate(-45deg);
+  z-index: 5;
+}
+.list-item--chevron:before {
+  position: absolute;
+  content: '';
   right: 16px;
   top: 50%;
-  z-index: 5;
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+          transform: translateY(-50%) rotate(-45deg);
+}
+.list-item__expand-chevron {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin: 1px; /* this improves alignment with normal chevrons */
+}
+.list-item--expandable.expanded .list-item__expand-chevron {
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
 }
 .list-item--chevron__right {
   padding-right: 30px;
@@ -4219,7 +4326,10 @@ h4, h5, h6 {
     </ul>
  */
 .list-item--nodivider__center,
-.list-item--nodivider__right {
+.list-item--nodivider__right,
+.list-item--nodivider.list-item--expandable,
+.list-item--expandable .list-item__center,
+.list-item--expandable .list-item__right {
   border: none;
   background-image: none;
 }
@@ -4462,7 +4572,7 @@ h4, h5, h6 {
   padding: 0;
   margin: 0;
   width: auto;
-  font-size: 15px;
+  font-size: 16px;
   height: 31px;
   font-weight: 400;
   box-sizing: border-box;
@@ -4544,7 +4654,7 @@ h4, h5, h6 {
   padding: 0;
   margin: 0;
   width: auto;
-  font-size: 15px;
+  font-size: 16px;
   height: 31px;
   font-weight: 400;
   box-sizing: border-box;
@@ -4729,7 +4839,7 @@ h4, h5, h6 {
   resize: none;
   outline: none;
   padding: 5px 5px 5px 5px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -4785,7 +4895,7 @@ h4, h5, h6 {
   padding: 5px 5px 5px 5px;
   padding-left: 0;
   padding-right: 0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   border-radius: 4px;
   border: none;
@@ -5798,7 +5908,8 @@ h4, h5, h6 {
     <button class="fab"><i class="zmdi zmdi-car"></i></button>
     <button class="fab" disabled><i class="zmdi zmdi-car"></i></button>
 */
-.fab {
+/* stylelint-disable */
+ons-fab.fab, ons-speed-dial-item.fab, button.fab {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -5835,16 +5946,28 @@ h4, h5, h6 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, .12);
   transition: all 0.1s linear;
 }
-.fab:active {
+ons-fab.fab:active, ons-speed-dial-item.fab:active, button.fab:active {
   box-shadow: 0 3px 6 rgba(0, 0, 0, .12);
   background-color: rgba(0, 118, 255, 0.7);
   transition: all 0.2s ease;
   box-shadow: 0 0 6 rgba(0, 0, 0, .12);
 }
-.fab:focus {
+ons-fab.fab:focus, ons-speed-dial-item.fab:focus, button.fab:focus {
   outline: 0;
 }
-.fab__icon {
+ons-fab.fab:disabled,
+    ons-fab.fab[disabled],
+    ons-speed-dial-item.fab:disabled,
+    ons-speed-dial-item.fab[disabled],
+    button.fab:disabled,
+    button.fab[disabled] {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+ons-fab.fab__icon, ons-speed-dial-item.fab__icon, button.fab__icon {
   position: relative;
   overflow: hidden;
   height: 100%;
@@ -5855,14 +5978,7 @@ h4, h5, h6 {
   z-index: 100;
   line-height: 56px;
 }
-.fab:disabled,
-.fab[disabled] {
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: none;
-  opacity: 0.3;
-  cursor: default;
-  pointer-events: none;
-}
+/* stylelint-enable */
 /*~
   name: Material Fab
   category: Fab
@@ -5871,7 +5987,8 @@ h4, h5, h6 {
     <button class="fab fab--material"><i class="zmdi zmdi-car"></i></button>
     <button class="fab fab--material" disabled><i class="zmdi zmdi-car"></i></button>
 */
-.fab--material {
+/* stylelint-disable */
+ons-fab.fab--material, ons-speed-dial-item.fab--material, button.fab--material {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -5923,7 +6040,7 @@ h4, h5, h6 {
       0 2px 4px -1px rgba(0, 0, 0, .4);
   transition: all 0.2s ease-in-out;
 }
-.fab--material:active {
+ons-fab.fab--material:active, ons-speed-dial-item.fab--material:active, button.fab--material:active {
   box-shadow:
       0 8px 10px 1px rgba(0, 0, 0, .14),
       0 3px 14px 2px rgba(0, 0, 0, .12),
@@ -5931,10 +6048,10 @@ h4, h5, h6 {
   background-color: rgba(255, 255, 255, .75);
   transition: all 0.2s ease;
 }
-.fab--material:focus {
+ons-fab.fab--material:focus, ons-speed-dial-item.fab--material:focus, button.fab--material:focus {
   outline: 0;
 }
-.fab--material__icon {
+ons-fab.fab--material__icon, ons-speed-dial-item.fab--material__icon, button.fab--material__icon {
   position: relative;
   overflow: hidden;
   height: 100%;
@@ -5945,14 +6062,19 @@ h4, h5, h6 {
   z-index: 100;
   line-height: 56px;
 }
-.fab--material:disabled,
-.fab--material[disabled] {
+ons-fab.fab--material:disabled,
+  ons-fab.fab--material[disabled],
+  ons-speed-dial-item.fab--material:disabled,
+  ons-speed-dial-item.fab--material[disabled],
+  button.fab--material:disabled,
+  button.fab--material[disabled] {
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: none;
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
+/* stylelint-enable */
 /*~
   name: Fab Mini
   category: Fab
@@ -5969,48 +6091,51 @@ h4, h5, h6 {
     <button class="fab fab--material fab--mini"><i class="zmdi zmdi-plus"></i></button>
     <button class="fab fab--material fab--mini" disabled><i class="zmdi zmdi-plus"></i></button>
 */
-.fab--mini {
+/* stylelint-disable */
+ons-fab.fab--mini, ons-speed-dial-item.fab--mini, button.fab--mini {
   width: 40px;
   height: 40px;
   line-height: 40px;
 }
-.fab--mini__icon {
+ons-fab.fab--mini__icon, ons-speed-dial-item.fab--mini__icon, button.fab--mini__icon {
   line-height: 40px;
 }
-.speed-dial__item {
+ons-fab.speed-dial__item,  ons-speed-dial-item.speed-dial__item,  button.speed-dial__item  {
   position: absolute;
   -webkit-transform: scale(0);
           transform: scale(0);
 }
-.fab--top__right {
+/* stylelint-enable */
+/* stylelint-disable */
+ons-fab.fab--top__right, button.fab--top__right, .speed-dial.fab--top__right {
   top: 20px;
   bottom: auto;
   right: 20px;
   left: auto;
   position: absolute;
 }
-.fab--bottom__right {
+ons-fab.fab--bottom__right, button.fab--bottom__right, .speed-dial.fab--bottom__right {
   top: auto;
   bottom: 20px;
   right: 20px;
   left: auto;
   position: absolute;
 }
-.fab--top__left {
+ons-fab.fab--top__left, button.fab--top__left, .speed-dial.fab--top__left {
   top: 20px;
   bottom: auto;
   right: auto;
   left: 20px;
   position: absolute;
 }
-.fab--bottom__left {
+ons-fab.fab--bottom__left, button.fab--bottom__left, .speed-dial.fab--bottom__left {
   top: auto;
   bottom: 20px;
   right: auto;
   left: 20px;
   position: absolute;
 }
-.fab--top__center {
+ons-fab.fab--top__center, button.fab--top__center, .speed-dial.fab--top__center {
   top: 20px;
   bottom: auto;
   margin-left: -28px;
@@ -6018,7 +6143,7 @@ h4, h5, h6 {
   right: auto;
   position: absolute;
 }
-.fab--bottom__center {
+ons-fab.fab--bottom__center, button.fab--bottom__center, .speed-dial.fab--bottom__center {
   top: auto;
   bottom: 20px;
   margin-left: -28px;
@@ -6026,6 +6151,7 @@ h4, h5, h6 {
   right: auto;
   position: absolute;
 }
+/* stylelint-enable */
 /*~
   name: Modal
   category: Modal
@@ -6695,9 +6821,9 @@ h4, h5, h6 {
   display: -webkit-flex;
   display: flex;
   min-height: 48px;
-  line-height: 48px;
+  line-height: 1.5;
   box-sizing: border-box;
-  padding: 0 16px;
+  padding: 16px 16px;
 }
 .toast__message {
   font-size: 14px;
@@ -6707,9 +6833,7 @@ h4, h5, h6 {
           flex-grow: 1;
   text-align: left;
   margin: 0 16px 0 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: normal;
 }
 .toast__button {
   font-size: 14px;
@@ -6747,7 +6871,7 @@ h4, h5, h6 {
   margin: 0;
   background-color: rgba(0, 0, 0, .8);
   border-radius: 0;
-  padding: 0 24px;
+  padding: 16px 24px;
 }
 .toast--material__message {
   font-family: 'Roboto', 'Noto', sans-serif;
@@ -6988,7 +7112,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-portrait] .dialog .toolbar, /* if wrapped with dialogs */
-  html[onsflag-iphonex-portrait] .modal .toolbar, /* if wrapped with modals */
   html[onsflag-iphonex-portrait] .toolbar:not(.toolbar--cover-content)+.page__background+.page__content .toolbar, /* if wrapped with a page with a toolbar */
   html[onsflag-iphonex-portrait] .tabbar--top__content .toolbar { /* if wrapped with a top tabbar */
     /* Restore original styles */
@@ -7005,7 +7128,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-portrait] .dialog .bottom-bar, /* if wrapped with dialogs */
-  html[onsflag-iphonex-portrait] .modal .bottom-bar, /* if wrapped with modals */
   html[onsflag-iphonex-portrait] .page-with-bottom-toolbar > .page__content .bottom-bar, /* if wrapped with a page with a bottom-bar */
   html[onsflag-iphonex-portrait] .tabbar__content:not(.tabbar--top__content) .bottom-bar { /* if wrapped with a bottom tabbar */
     /* Restore original styles */
@@ -7023,7 +7145,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-portrait] .dialog .page__content, /* if wrapped with dialogs */
-  html[onsflag-iphonex-portrait] .modal .page__content, /* if wrapped with modals */
   html[onsflag-iphonex-portrait] .toolbar:not(.toolbar--cover-content)+.page__background+.page__content .page__content, /* if wrapped with a page with a toolbar */
   html[onsflag-iphonex-portrait] .tabbar--top__content .page__content, /* if wrapped with a top tabbar */
   html[onsflag-iphonex-portrait] .toolbar:not(.toolbar--cover-content)+.page__background+.page__content { /* if the page has a toolbar */
@@ -7032,7 +7153,6 @@ h4, h5, h6 {
     padding-top: 0;
   }
   html[onsflag-iphonex-portrait] .dialog .page__content, /* if wrapped with dialogs */
-  html[onsflag-iphonex-portrait] .modal .page__content, /* if wrapped with modals */
   html[onsflag-iphonex-portrait] .page-with-bottom-toolbar > .page__content .page__content, /* if wrapped with a page with a bottom-bar */
   html[onsflag-iphonex-portrait] .tabbar__content:not(.tabbar--top__content) .page__content, /* if wrapped with a bottom tabbar */
   html[onsflag-iphonex-portrait] .page-with-bottom-toolbar > .page__content { /* if the page has a bottom-bar */
@@ -7051,9 +7171,6 @@ h4, h5, h6 {
   html[onsflag-iphonex-portrait] .dialog .toolbar:not(.toolbar--cover-content)+.page__background,
   html[onsflag-iphonex-portrait] .dialog .toolbar:not(.toolbar--cover-content)+.page__background+.page__content, /* if wrapped with dialogs */
 
-  html[onsflag-iphonex-portrait] .modal .toolbar:not(.toolbar--cover-content)+.page__background,
-  html[onsflag-iphonex-portrait] .modal .toolbar:not(.toolbar--cover-content)+.page__background+.page__content, /* if wrapped with modals */
-
   html[onsflag-iphonex-portrait] .toolbar:not(.toolbar--cover-content)+.page__background+.page__content .toolbar:not(.toolbar--cover-content)+.page__background,
   html[onsflag-iphonex-portrait] .toolbar:not(.toolbar--cover-content)+.page__background+.page__content .toolbar:not(.toolbar--cover-content)+.page__background+.page__content, /* if wrapped with a page with a toolbar */
 
@@ -7071,7 +7188,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-portrait] .dialog .page-with-bottom-toolbar > .page__content, /* if wrapped with dialogs */
-  html[onsflag-iphonex-portrait] .modal .page-with-bottom-toolbar > .page__content, /* if wrapped with modals */
   html[onsflag-iphonex-portrait] .page-with-bottom-toolbar > .page__content .page-with-bottom-toolbar > .page__content, /* if wrapped with a page with a bottom-bar */
   html[onsflag-iphonex-portrait] .tabbar__content:not(.tabbar--top__content) .page-with-bottom-toolbar > .page__content { /* if wrapped with a bottom tabbar */
     /* Restore original styles */
@@ -7088,8 +7204,6 @@ h4, h5, h6 {
   /* Non-outermost */
   html[onsflag-iphonex-portrait] .dialog .toolbar.toolbar--transparent.toolbar--cover-content+.page__background+.page__content, /* if wrapped with dialogs */
   html[onsflag-iphonex-portrait] .dialog .toolbar.toolbar--transparent.toolbar--cover-content+.page__background+.page__content .page_content,
-  html[onsflag-iphonex-portrait] .modal .toolbar.toolbar--transparent.toolbar--cover-content+.page__background+.page__content, /* if wrapped with modals */
-  html[onsflag-iphonex-portrait] .modal .toolbar.toolbar--transparent.toolbar--cover-content+.page__background+.page__content .page_content,
   html[onsflag-iphonex-portrait] .toolbar:not(.toolbar--cover-content)+.page__background+.page__content .toolbar.toolbar--transparent.toolbar--cover-content+.page__background+.page__content, /* if wrapped with a page with a toolbar */
   html[onsflag-iphonex-portrait] .toolbar:not(.toolbar--cover-content)+.page__background+.page__content .toolbar.toolbar--transparent.toolbar--cover-content+.page__background+.page__content .page__content,
   html[onsflag-iphonex-portrait] .tabbar--top__content .toolbar.toolbar--transparent.toolbar--cover-content+.page__background+.page__content,
@@ -7105,7 +7219,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-portrait] .dialog .tabbar--top, /* if wrapped with dialogs */
-  html[onsflag-iphonex-portrait] .modal .tabbar--top, /* if wrapped with modals */
   html[onsflag-iphonex-portrait] .toolbar:not(.toolbar--cover-content)+.page__background+.page__content .tabbar--top, /* if wrapped with a page with a toolbar */
   html[onsflag-iphonex-portrait] .tabbar--top__content .tabbar--top { /* if wrapped with a top tabbar */
     /* Restore original styles */
@@ -7118,7 +7231,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-portrait] .dialog .tabbar--top__content, /* if wrapped with dialogs */
-  html[onsflag-iphonex-portrait] .modal .tabbar--top__content, /* if wrapped with modals */
   html[onsflag-iphonex-portrait] .toolbar:not(.toolbar--cover-content)+.page__background+.page__content .tabbar--top__content, /* if wrapped with a page with a toolbar */
   html[onsflag-iphonex-portrait] .tabbar--top__content .tabbar--top__content { /* if wrapped with a top tabbar */
     /* Restore original styles */
@@ -7131,7 +7243,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-portrait] .dialog .tabbar:not(.tabbar--top):not(.tabbar--top), /* if wrapped with dialogs */
-  html[onsflag-iphonex-portrait] .modal .tabbar:not(.tabbar--top):not(.tabbar--top), /* if wrapped with modals */
   html[onsflag-iphonex-portrait] .page-with-bottom-toolbar > .page__content .tabbar:not(.tabbar--top), /* if wrapped with a page with a bottom-bar */
   html[onsflag-iphonex-portrait] .tabbar__content:not(.tabbar--top__content) .tabbar:not(.tabbar--top) { /* if wrapped with a bottom tabbar */
     /* Restore original styles */
@@ -7144,7 +7255,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-portrait] .dialog .tabbar__content:not(.tabbar--top__content), /* if wrapped with dialogs */
-  html[onsflag-iphonex-portrait] .modal .tabbar__content:not(.tabbar--top__content), /* if wrapped with modals */
   html[onsflag-iphonex-portrait] .page-with-bottom-toolbar > .page__content .tabbar__content:not(.tabbar--top__content), /* if wrapped with a page with a bottom-bar */
   html[onsflag-iphonex-portrait] .tabbar__content:not(.tabbar--top__content) .tabbar__content:not(.tabbar--top__content) { /* if wrapped with a bottom tabbar */
     /* Restore original styles */
@@ -7160,7 +7270,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-landscape] .dialog .bottom-bar, /* if wrapped with dialogs */
-  html[onsflag-iphonex-landscape] .modal .bottom-bar, /* if wrapped with modals */
   html[onsflag-iphonex-landscape] .page-with-bottom-toolbar > .page__content .bottom-bar, /* if wrapped with a page with a bottom-bar */
   html[onsflag-iphonex-landscape] .tabbar__content:not(.tabbar--top__content) .bottom-bar { /* if wrapped with a bottom tabbar */
     /* Restore original styles */
@@ -7176,7 +7285,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-landscape] .dialog .page__content, /* if wrapped with dialogs */
-  html[onsflag-iphonex-landscape] .modal .page__content, /* if wrapped with modals */
   html[onsflag-iphonex-landscape] .page-with-bottom-toolbar > .page__content .page__content, /* if wrapped with a page with a bottom-bar */
   html[onsflag-iphonex-landscape] .tabbar__content:not(.tabbar--top__content) .page__content, /* if wrapped with a bottom tabbar */
   html[onsflag-iphonex-landscape] .page-with-bottom-toolbar > .page__content { /* if the page has a bottom-bar */
@@ -7192,7 +7300,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-landscape] .dialog .page-with-bottom-toolbar > .page__content, /* if wrapped with dialogs */
-  html[onsflag-iphonex-landscape] .modal .page-with-bottom-toolbar > .page__content, /* if wrapped with modals */
   html[onsflag-iphonex-landscape] .page-with-bottom-toolbar > .page__content .page-with-bottom-toolbar > .page__content, /* if wrapped with a page with a bottom-bar */
   html[onsflag-iphonex-landscape] .tabbar__content:not(.tabbar--top__content) .page-with-bottom-toolbar > .page__content { /* if wrapped with a bottom tabbar */
     /* Restore original styles */
@@ -7206,7 +7313,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-landscape] .dialog .tabbar:not(.tabbar--top), /* if wrapped with dialogs */
-  html[onsflag-iphonex-landscape] .modal .tabbar:not(.tabbar--top), /* if wrapped with modals */
   html[onsflag-iphonex-landscape] .page-with-bottom-toolbar > .page__content .tabbar:not(.tabbar--top), /* if wrapped with a page with a bottom-bar */
   html[onsflag-iphonex-landscape] .tabbar__content:not(.tabbar--top__content) .tabbar:not(.tabbar--top) { /* if wrapped with a bottom tabbar */
     /* Restore original styles */
@@ -7219,7 +7325,6 @@ h4, h5, h6 {
   }
   /* Non-outermost */
   html[onsflag-iphonex-landscape] .dialog .tabbar__content:not(.tabbar--top__content), /* if wrapped with dialogs */
-  html[onsflag-iphonex-landscape] .modal .tabbar__content:not(.tabbar--top__content), /* if wrapped with modals */
   html[onsflag-iphonex-landscape] .page-with-bottom-toolbar > .page__content .tabbar__content:not(.tabbar--top__content), /* if wrapped with a page with a bottom-bar */
   html[onsflag-iphonex-landscape] .tabbar__content:not(.tabbar--top__content) .tabbar__content:not(.tabbar--top__content) { /* if wrapped with a bottom tabbar */
     /* Restore original styles */
@@ -7260,37 +7365,30 @@ h4, h5, h6 {
 /* Lists in .page__content in dialogs and modals */
 @media (orientation: landscape) {
   /* Only patching lists just under .page__content */
-  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset),
-  html[onsflag-iphonex-landscape] .modal .page__content > .list:not(.list--inset) {
+  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) {
     margin-left: 0;
     margin-right: 0;
   }
 
   /* For left safe area */
-  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-header,
-  html[onsflag-iphonex-landscape] .modal .page__content > .list:not(.list--inset) > .list-header {
+  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-header {
     padding-left: 15px;
   }
-  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-item,
-  html[onsflag-iphonex-landscape] .modal .page__content > .list:not(.list--inset) > .list-item {
+  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-item {
     padding-left: 14px;
   }
 
   /* For right safe area */
-  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-item--chevron:before,
-  html[onsflag-iphonex-landscape] .modal .page__content > .list:not(.list--inset) > .list-item--chevron:before {
+  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-item--chevron:before {
     right: 16px;
   }
-  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-item > .list-item__center:last-child,
-  html[onsflag-iphonex-landscape] .modal .page__content > .list:not(.list--inset) > .list-item > .list-item__center:last-child {
+  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-item > .list-item__center:last-child {
     padding-right: 6px;
   }
-  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-item > .list-item__right,
-  html[onsflag-iphonex-landscape] .modal .page__content > .list:not(.list--inset) > .list-item > .list-item__right {
+  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-item > .list-item__right {
     padding-right: 12px;
   }
-  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-item > .list-item--chevron__right,
-  html[onsflag-iphonex-landscape] .modal .page__content > .list:not(.list--inset) > .list-item > .list-item--chevron__right {
+  html[onsflag-iphonex-landscape] .dialog .page__content > .list:not(.list--inset) > .list-item > .list-item--chevron__right {
     padding-right: 30px;
   }
 }

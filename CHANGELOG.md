@@ -2,6 +2,104 @@
 CHANGELOG
 ====
 
+2.10.6
+---
+
+ ### Misc
+
+ * Avoid event-stream@3.3.6 vulnerability (https://github.com/dominictarr/event-stream/issues/116).
+
+2.10.5
+---
+
+ ### Bug Fixes
+
+ * ons-list-item: Fix expandable list item not working correctly for lists inside expandable content. ([#2485](https://github.com/OnsenUI/OnsenUI/issues/2485)).
+ * ons.platform.isIPhoneX: Support iPhone XS, XS Max, and XR. ([#2540](https://github.com/OnsenUI/OnsenUI/issues/2540)).
+
+ ### Misc
+
+ * Updated FontAwesome to 5.2.0 ([#2502](https://github.com/OnsenUI/OnsenUI/issues/2502)).
+
+2.10.4
+---
+
+ ### New Features
+
+ * ons.platform: Can choose to ignore selected platform when checking what platform is e.g. `ons.platform.isAndroid`. ([#2475](https://github.com/OnsenUI/OnsenUI/issues/2475)).
+ * ons-toolbar: Add methods to show and hide the toolbar ([#2478](https://github.com/OnsenUI/OnsenUI/issues/2478))
+
+ ### Bug Fixes
+
+ * css: Fix button style for Firefox. ([#2469](https://github.com/OnsenUI/OnsenUI/issues/2469)).
+ * ons-toast: Fix app closing when toast is shown and back button is pressed ([#2388](https://github.com/OnsenUI/OnsenUI/issues/2388))
+
+2.10.3
+---
+
+ ### Misc
+
+ * Re-release of 2.10.2 due to npm package not containing minified Angular bindings ([#2468](https://github.com/OnsenUI/OnsenUI/issues/2468)). No functional changes.
+
+2.10.2
+---
+
+ ### Bug Fixes
+
+ * ons-lazy-repeat: Fix dynamic adding of items ([#2443](https://github.com/OnsenUI/OnsenUI/issues/2443))
+ * ons-toast: Fix padding of Material toast ([#2436](https://github.com/OnsenUI/OnsenUI/issues/2436))
+ * ons-button: Remove dotted border on Firefox ([#2408](https://github.com/OnsenUI/OnsenUI/issues/2408))
+ * css: Fix CSS import paths ([#2336](https://github.com/OnsenUI/OnsenUI/issues/2336), [#2453](https://github.com/OnsenUI/OnsenUI/issues/2453))
+ * ons-input: Prevent zooming of inputs on iOS ([#2400](https://github.com/OnsenUI/OnsenUI/issues/2400))
+ * ons-page: Fix `page-with-bottom-toolbar` not being set in some cases ([#2459](https://github.com/OnsenUI/OnsenUI/issues/2459))
+
+2.10.1
+---
+
+ ### Bug Fixes
+
+ * ons-tabbar: Fix race condition with some tabs ([#2430](https://github.com/OnsenUI/OnsenUI/issues/2430))
+ * ons-list-item: Fix expandable item breaking when compiled more than once (for example, with ng-repeat) ([#2434](https://github.com/OnsenUI/OnsenUI/issues/2434))
+
+2.10.0
+---
+
+ ### New Features
+
+ * ons.notification: Add `maskColor` configuration for `alert`, `confirm` and `prompt` ([#2358](https://github.com/OnsenUI/OnsenUI/issues/2358))
+ * ons-list-item: Add expandable list items ([#2380](https://github.com/OnsenUI/OnsenUI/issues/2380))
+ * ons-toast: Toast messages can be more than one line long ([#2405](https://github.com/OnsenUI/OnsenUI/issues/2405))
+
+ ### Bug Fixes
+
+ * onsenui.d.ts: Fixed [#2354](https://github.com/OnsenUI/OnsenUI/issues/2354).
+ * ons-toolbar: `static` attribute works with iOS status bar.
+ * ons-pull-hook: Improve scroll behavior in UIWebView. Fixed [#2353](https://github.com/OnsenUI/OnsenUI/issues/2353) and [#2357](https://github.com/OnsenUI/OnsenUI/issues/2357).
+ * ons-navigator: Fixed [#2376](https://github.com/OnsenUI/OnsenUI/issues/2376).
+ * ons-select: Fixed [#2251](https://github.com/OnsenUI/OnsenUI/issues/2251) for all bindings.
+ * ons-splitter-side: Fixed regression of ([#2026](https://github.com/OnsenUI/OnsenUI/issues/2026)).
+ * ons-popover: Fixed incorrect placement of popover when page is not full width ([#2386](https://github.com/OnsenUI/OnsenUI/issues/2386)).
+
+2.9.2
+---
+
+ ### New features
+
+ * ons-toolbar: Added new `static` attribute to avoid animations in the toolbar when pushing or popping pages.
+
+ ### Bug Fixes
+
+ * ons-tabbar: Fixed [#2316](https://github.com/OnsenUI/OnsenUI/issues/2316).
+ * ons-tabbar: Fixed [#2343](https://github.com/OnsenUI/OnsenUI/issues/2343).
+ * ons-splitter-side: Fixed [#2271](https://github.com/OnsenUI/OnsenUI/issues/2271).
+ * ons-navigator: Fixed [#2333](https://github.com/OnsenUI/OnsenUI/issues/2333).
+ * ons-select (fastclick): Fixed [#2352](https://github.com/OnsenUI/OnsenUI/issues/2352).
+ * ons-switch: Fixed [#2341](https://github.com/OnsenUI/OnsenUI/issues/2341).
+
+ ### Misc
+
+ * core, react: Pointed reference pages to new tutorials.
+
 2.9.1
 ----
 

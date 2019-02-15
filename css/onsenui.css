@@ -1,8 +1,8 @@
-/*! onsenui - v2.9.1 - 2018-01-26 */
-@import url("ionicons/css/ionicons.min.css");
-@import url("material-design-iconic-font/css/material-design-iconic-font.min.css");
-@import url("font_awesome/css/font-awesome.min.css");
-
+/*! onsenui - v2.10.6 - 2018-11-30 */
+@import url("./ionicons/css/ionicons.min.css");
+@import url("./material-design-iconic-font/css/material-design-iconic-font.min.css");
+@import url("./font_awesome/css/font-awesome.min.css");
+@import url("./font_awesome/css/v4-shims.min.css");
 
 ons-page, ons-navigator,
 ons-tabbar,
@@ -476,6 +476,14 @@ limitations under the License.
   font-size: 5em;
 }
 
+/**
+ * ons-icon with Font Awesome backward compatibility
+ */
+.ons-icon.fa {
+  font-family: 'Font Awesome 5 Brands', 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
 ons-input, ons-radio, ons-checkbox, ons-search-input {
   display: inline-block;
   position: relative;
@@ -709,6 +717,10 @@ limitations under the License.
   box-sizing: border-box;
   width: 100%;
   position: relative !important;
+}
+
+.ons-swiper-target.active:not(.swiping) > .page:not([shown]) {
+  visibility: hidden;
 }
 
 .ons-swiper-tabbar .tabbar--material__button:after {
