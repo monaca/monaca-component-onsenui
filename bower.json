@@ -1,35 +1,26 @@
 {
-  "name": "monaca-onsenui",
-  "version": "2.10.6",
-  "description": "Dist version of OnsenUI for Monaca Component.",
-  "main": "onsenui.js",
-  "monaca" : {
-    "main": [
-      "js/onsenui.js",
-      "css/onsenui.css",
-      "css/onsen-css-components.css"
-    ],
-    "option": [
-      "js/angular/angular.min.js",
-      "js/angular-onsenui.min.js",
-      "js/onsenui.d.ts"
-    ]
-  },
+  "name": "onsenui",
+  "homepage": "https://onsen.io",
+  "authors": [
+    "Kruy Vanna <kruyvanna@gmail.com>",
+    "Mitsunori KUBOTA <anatoo.jp@gmail.com>"
+  ],
+  "description": "Web Component inspired HTML5 UI framework for building modern mobile application",
+  "main": [
+    "js/onsenui.js",
+    "css/onsenui.css",
+    "css/onsen-css-components.css"
+  ],
   "keywords": [
+    "onsenui",
+    "angular",
+    "html5",
+    "cordova",
+    "phonegap",
+    "web",
+    "component",
     "monaca"
   ],
-  "authors": [
-    "Monaca"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com:monaca/monaca-component-onsenui.git"
-  },
-  "homepage": "https://onsen.io/",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "test",
-    "README.md"
-  ]
+  "dependencies": {},
+  "license": "Apache License, Version 2.0"
 }
